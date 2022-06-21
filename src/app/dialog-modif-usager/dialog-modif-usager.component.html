@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Modifier une bouteille</h1>
+<div mat-dialog-content>
+    <h3>Nom de la bouteille: {{editData.nom}}</h3>
+    <form [formGroup]="modifierBouteilleForm" action="">
+        <!--Inputs-->
+        <mat-form-field appearance="outline">
+            <mat-label>Date d'achat :</mat-label>
+            <input matInput formControlName="date_achat" placeholder="AAAA-MM-JJ">
+            <mat-hint></mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Garder jusqu'à :</mat-label>
+            <input matInput formControlName="garde_jusqua" placeholder="AAAA-MM-JJ">
+            <mat-hint></mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Notes :</mat-label>
+            <input matInput formControlName="notes" placeholder="Nombre entier">
+            <mat-hint></mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Prix :</mat-label>
+            <input matInput formControlName="prix" placeholder="Nombre">
+            <mat-hint></mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Quantité :</mat-label>
+            <input matInput formControlName="quantite" placeholder="Nombre entier">
+            <mat-hint></mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Millesime :</mat-label>
+            <input matInput formControlName="millesime" placeholder="AAAA">
+            <mat-hint></mat-hint>
+        </mat-form-field>
+    </form>
+</div>
+<!--Boutons-->
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button routerLink="" color="success" [disabled]="!modifierBouteilleForm.dirty || !modifierBouteilleForm.valid" (click)="modifierBiere">Modifier</button>
+    <button mat-raised-button routerLink="" color="warn" mat-dialog-close>Cancel</button>
+</div>
+

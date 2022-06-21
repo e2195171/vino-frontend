@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>
+    Ajouter un nouveau cellier
+</h1>
+<div mat-dialog-content>
+  <form [formGroup]="cellierForm" action="">
+    <!--Select-->
+    <mat-form-field appearance="outline">
+      <mat-label>Nom du cellier :</mat-label>
+      <input matInput formControlName="nom" placeholder="Saisir le nom du cellier">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Adresse :</mat-label>
+      <input matInput formControlName="adresse" placeholder="Saisir l'adresse du cellier">
+    </mat-form-field>
+  </form>
+</div>
+<!--Boutons-->
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="success" [disabled]="!cellierForm.dirty || !cellierForm.valid" (click)="submit()">Ajouter</button>
+  <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+</div>

@@ -1,0 +1,31 @@
+
+.btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.img{
+    margin-left: 5vw;
+}
+
+
+@media screen and (min-width: 768px){
+    .img{
+        margin-left: 2vw;
+    }
+}
+
+.auth{
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-around;
+    align-items: center;
+    margin-top: 33vh;
+}
+
+button{
+    margin-top: 10px;
+}
+
