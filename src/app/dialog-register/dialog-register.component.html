@@ -27,12 +27,19 @@
             <input matInput formControlName="adresse" placeholder="Entrer votre adresse">
             <mat-hint></mat-hint>
         </mat-form-field>
+        <mat-form-field>
+            <mat-select [(value)]="getVilleId" formControlName="id_ville" required placeholder="Nom de la ville">
+              <mat-option *ngFor="let ville of villes" [value]="ville.id">
+                {{ ville.nom }}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Mot de passe :</mat-label>
             <input type="password" matInput formControlName="mot_passe" placeholder="Entrer votre mot de passe">
             <mat-hint></mat-hint>
         </mat-form-field>
-        <!----><mat-form-field appearance="outline">
+        <mat-form-field appearance="outline">
             <mat-label>Confirme ton mot de passe :</mat-label>
             <input type="password" formControlName="confirmpassword" matInput placeholder="Confirmer votre mot de passe">
             <mat-hint></mat-hint>

@@ -19,6 +19,11 @@ export class ApibieroService {
     url: string = "http://127.0.0.1:8000/webservice/php/";
     
     constructor(private http: HttpClient) { }
+
+    /** ---- DMITRIY --- GET requête pour afficher les bouteilles du cellier */
+    getListeVilles(): Observable<IListeProduit>{
+        return this.http.get<IListeProduit>(this.url+'usager/ville');
+    }
     
     /** GET requête pour afficher les bouteilles du cellier */
     register(data: IUser): Observable<IUser>{

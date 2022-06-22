@@ -19,6 +19,8 @@ export class DialogRegisterComponent implements OnInit {
     @Input() user!:IUser;
     registerForm!:FormGroup;
     loggedUser: any;
+    getVilleId: any;
+    villes: any;
 
     constructor(
                     private formBuilder: FormBuilder,
@@ -49,7 +51,10 @@ export class DialogRegisterComponent implements OnInit {
     ngOnInit(): void {
         /** Obtenir une nomenclature des bouteilles importées de la SAQ */
         // this.authServ.getLoggedUser().subscribe((data: any) => { this.loggedUser = data.data; })
-
+        this.bieroServ.getListeVilles().subscribe((data: any) => { this.villes = data.data; })
+        console.log(this.villes);
+        
+        
         /** Forme et validation des données saisies */
         this.registerForm = this.formBuilder.group({
             nom: ['', [Validators.required, Validators.pattern(this.nomRegex)]],
@@ -57,6 +62,7 @@ export class DialogRegisterComponent implements OnInit {
             courriel: ['', [Validators.required, Validators.pattern(this.courrielRegex)]],
             phone: ['', [Validators.required, Validators.pattern(this.phoneRegex)]],
             adresse: ['', [Validators.required, Validators.pattern(this.adresseRegex)]],
+            id_ville: ['', [Validators.required]],
             mot_passe: ['', [Validators.required, Validators.pattern(this.passwordRegex)]],
             confirmpassword: ['',  [Validators.required, Validators.pattern(this.confirmRegex)]],
         })
@@ -79,6 +85,7 @@ export class DialogRegisterComponent implements OnInit {
 
             if (this.registerForm.value.mot_passe == this.registerForm.value.confirmpassword) {
                 let data = this.registerForm.value;
+                this.registerForm.value.id_ville = this.getVilleId;
                 this.bieroServ.register(data)
                 .subscribe({
                     next:(res)=>{
