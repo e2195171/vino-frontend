@@ -131,7 +131,7 @@ export class ProfilComponent implements OnInit {
     }
 
     /** Bouton Modifier la bouteille */
-    editDialogCellier(cellier:IProduit): void {
+    editDialogCellier(cellier:ICellier): void {
         const dialogRef = this.dialog.open(DialogModifCellierComponent, {
             width: '100%',
             maxWidth: '370px',

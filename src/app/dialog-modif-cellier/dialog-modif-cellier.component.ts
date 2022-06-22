@@ -32,33 +32,33 @@ export class DialogModifCellierComponent implements OnInit {
     /** Modèles d'expression régulière */
     ngOnInit(): void {
       /** Forme et validation des données saisies */
-      this.modifierCellierForm = this.formBuilder.group({
-        nom: ['', [Validators.required]],
-        adresse: ['', [Validators.required]]
-      })
+        this.modifierCellierForm = this.formBuilder.group({
+            nom: ['', [Validators.required]],
+            adresse: ['', [Validators.required]]
+        });
+        //console.log(this.editData);
+        
+        /** Affectation des données du formulaire aux valeurs à envoyer à la base de données */
+        if(this.editData){
+            this.modifierCellierForm.controls['nom'].setValue(this.editData.nom);
+            this.modifierCellierForm.controls['adresse'].setValue(this.editData.cellier_adresse);
+        }
     }
-  
 
-    /** Affectation des données du formulaire aux valeurs à envoyer à la base de données */
-    // if(this.editData){
-    //     this.modifierCellierForm.controls['nom'].setValue(this.editData.nom);
-    //     this.modifierCellierForm.controls['adresse'].setValue(this.editData.adresse);
-    // }
-  
     submit() {
-         console.log(this.editData.cellier_id_cellier);
+        console.log(this.editData.cellier_id_cellier);
          
-        // if (this.modifierCellierForm.valid) {
-        //     const cellier: ICellier = this.modifierCellierForm.value;  
-        //     cellier.cellier_id_cellier = this.editData.cellier_id_cellier;
-        //     this.bieroServ.modifierCellier(cellier).subscribe({
-        //     next:(reponse)=>{
-        //         this.dialogRef.close('mod');  
-        //     },
-        //     error:(reponse)=>{
-        //         this.dialogRef.close('mod');
-        //     }
-        //     });
-        // }
+        if (this.modifierCellierForm.valid) {
+            const cellier: ICellier = this.modifierCellierForm.value;  
+            cellier.cellier_id_cellier = this.editData.cellier_id_cellier;
+            this.bieroServ.modifierCellier(cellier).subscribe({
+            next:(reponse)=>{
+                this.dialogRef.close('mod');  
+            },
+            error:(reponse)=>{
+                this.dialogRef.close('mod');
+            }
+            });
+        }
     }
 }
