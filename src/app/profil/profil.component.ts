@@ -95,7 +95,7 @@ export class ProfilComponent implements OnInit {
         this.bieroServ.getProfil(id_usager)
         .subscribe({
             next:(res)=>{
-                this.usager = res;
+                this.usager = res.data;
                 console.log(this.usager);
 
             },
