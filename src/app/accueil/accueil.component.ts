@@ -35,6 +35,7 @@ export class AccueilComponent implements OnInit {
    openLogin(): void {
     this.dialog.open(DialogLoginComponent, {
         width: '90%',
+        maxWidth: '300px',
         data: this.loggedUser
     }).afterClosed().subscribe(res=>{
         // alert('logged in');
