@@ -26,7 +26,7 @@ import { DataService } from '../Data/data.service';
   styleUrls: ['./profil.component.scss']
 })
 export class ProfilComponent implements OnInit {
-    usager !:Array<IUsager>;
+    usager !: any;
     cellier !: ICellier;
     //cellierData: string;
 
@@ -95,7 +95,7 @@ export class ProfilComponent implements OnInit {
         this.bieroServ.getProfil(id_usager)
         .subscribe({
             next:(res)=>{
-                this.usager = res.data;
+                this.usager = res;
                 console.log(this.usager);
 
             },

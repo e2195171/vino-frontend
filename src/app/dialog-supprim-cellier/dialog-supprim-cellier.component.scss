@@ -1,0 +1,30 @@
+button{
+    margin-left: 1vw;
+  }
+  input.ng-invalid, textarea.ng-invalid{
+    color: #f00;
+  }
+  
+  input.ng-valid, textarea.ng-valid{
+    color: rgb(41, 3, 145);
+  }
+  
+  .mat-success {
+    background-color: green;
+    color: #fff;
+  }
+  
+  
+  .submit-bloc{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .container{
+    width: 70%;
+    flex: 1 0 auto;
+    margin: 0 auto;
+    text-align: left;
+    margin-top: 100px;
+  }
+  

@@ -28,8 +28,6 @@ export class DialogAjoutCellierComponent implements OnInit {
   
     /** Modèles d'expression régulière */
     ngOnInit(): void {
-        
-             
         /** Forme et validation des données saisies */
         this.cellierForm = this.formBuilder.group({
             nom: ['', [Validators.required]],

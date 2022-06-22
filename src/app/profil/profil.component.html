@@ -57,8 +57,9 @@
             <ng-container *ngFor="let unUsager of usager">
             <mat-card class="card" >
                 <mat-card-header>
-                    <img mat-card-avatar="" class="mat-card-avatar header-image" src="{{unUsager.image_url}}" alt="{{unUsager.usager_nom}}">
-                    <mat-card-title>{{unUsager.usager_nom}}</mat-card-title>
+                    <img mat-card-avatar="" class="mat-card-avatar header-image" src="{{unUsager.image_url}}" alt="{{unUsager.nom_usager}}">
+                    <mat-card-title>{{unUsager.prenom}}</mat-card-title>
+                    <mat-card-title>{{unUsager.nom_usager}}</mat-card-title>
                     <mat-card-subtitle>{{unUsager.courriel}}</mat-card-subtitle>
                 </mat-card-header>
                
@@ -67,15 +68,15 @@
                         Phone : {{unUsager.phone}}
                     </p>
                     <p>
-                        Adresse : {{unUsager.usager_adresse}}
+                        Adresse : {{unUsager.adresse_usager}}
                     </p>
                     <p>
                         Ville : {{unUsager.nom}}
                     </p>
                 </mat-card-content>
                 <mat-card-actions>
-                    <!--<a class="liste__btn-saq-creer fill" mat-raised-button routerLink="" (click)="editDialogUsager(usager)">Modifier mon profil</a>-->
-                    <a class="liste__btn-saq-creer fill" mat-raised-button routerLink="" (click)="createDialogCellier()">Modifier mot de passe</a>
+                    <a class="liste__btn-saq-creer fill" mat-raised-button routerLink="" (click)="editDialogUsager(usager)">Modifier mon profil</a>
+                    <!--<a class="liste__btn-saq-creer fill" mat-raised-button routerLink="" (click)="createDialogCellier()">Modifier mot de passe</a>-->
                 </mat-card-actions>
             </mat-card>
         </ng-container>
