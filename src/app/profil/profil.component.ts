@@ -95,7 +95,7 @@ export class ProfilComponent implements OnInit {
         this.bieroServ.getProfil(id_usager)
         .subscribe({
             next:(res)=>{
-                this.usager = res;
+                this.usager = res.data;
                 console.log(this.usager);
 
             },
@@ -131,7 +131,7 @@ export class ProfilComponent implements OnInit {
     }
 
     /** Bouton Modifier la bouteille */
-    editDialogCellier(cellier:IProduit): void {
+    editDialogCellier(cellier:ICellier): void {
         const dialogRef = this.dialog.open(DialogModifCellierComponent, {
             width: '100%',
             maxWidth: '370px',
