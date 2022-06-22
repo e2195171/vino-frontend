@@ -68,7 +68,7 @@ export class ApibieroService {
                 'Authorization' : 'Basic '+ btoa("biero:biero")
             })
         };
-        return this.http.post<IProduit>(this.url+'cellier/cellier/'+data.id_cellier+'/bouteille/'+data.date_achat+'/usager/'+ data.id_usager, data, httpOption);
+        return this.http.post<IProduit>(this.url+'cellier/cellier/'+data.id_cellier+'/'+data.id_bouteille+'/usager/'+ data.id_usager, data, httpOption);
     }
 
     /** POST requête pour modifier la bouteille dans le cellier */

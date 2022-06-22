@@ -37,6 +37,7 @@ export class DialogModifComponent implements OnInit {
             quantite : ['', [Validators.pattern(this.nombreEntierRegex)]],
             millesime : ['', [Validators.pattern(this.anneeRegex)]]
         });
+        console.log(this.editData)
 
         /** Affectation des données du formulaire aux valeurs à envoyer à la base de données */
         if(this.editData){
@@ -55,6 +56,7 @@ export class DialogModifComponent implements OnInit {
             const id_usager = sessionStorage.id_usager;
             const bouteille: IProduit = this.modifierBouteilleForm.value;  
             bouteille.id_cellier = this.editData.id_cellier;
+            bouteille.id_bouteille = this.editData.id_bouteille;
             bouteille.id_usager = id_usager;
             this.bieroServ.modifierBouteille(bouteille).subscribe({
             next:(reponse)=>{
