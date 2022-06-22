@@ -135,6 +135,7 @@ export class ApibieroService {
 
     /** GET requête pour afficher la gamme de bouteilles importées de la SAQ */
     getListeBouteilles():Observable<IListeProduit>{
+
         return this.http.get<IListeProduit>(this.url+'bouteille/bouteilles');
     }
 
@@ -150,14 +151,14 @@ export class ApibieroService {
     }
 
     /** PUT requête pour reduire la quantité de bouteilles avec le même id dans le cellier */
-    deleteBouteillesCellierQuantiteAjoutee(data:IProduit):Observable<IListeProduit>{
+    deleteBouteillesCellierQuantiteAjoutee(data:any):Observable<any>{
         let httpOption = {
             headers : new HttpHeaders({
                 'Content-type' : 'application/json',
                 'Authorization' : 'Basic '+ btoa("biero:biero")
             })                                                                                               
         };                                                                                                                 
-        return this.http.delete<IListeProduit>(this.url+'cellier/cellier/'+data.id_cellier+"/"+data.id_bouteille+"/"+data.id_achats+"/quantite/",httpOption);
+        return this.http.delete<any>(this.url+'cellier/cellier/'+data.id_cellier+"/"+data.id_bouteille+"/"+data.id_achats+"/quantite/",httpOption);
     }
 
     /** GET requête pour afficher la bouteille */
