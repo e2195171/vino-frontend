@@ -1,1 +1,9 @@
-<p>dialog-supprim-cellier works!</p>
+<h1 mat-dialog-title>Voulez-vous vraiment supprimer ce cellier?</h1>
+<div mat-dialog-content>
+    <h3>Nom de cellier: {{editData.nom}}</h3>
+</div>
+<!--Boutons-->
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" (click)="supprimerCellier()">Supprimer</button>
+    <button mat-raised-button color="success" mat-dialog-close>Cancel</button>
+</div>
