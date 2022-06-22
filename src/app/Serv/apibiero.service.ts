@@ -71,9 +71,27 @@ export class ApibieroService {
         return this.http.post<IProduit>(this.url+'cellier/cellier/'+data.id_cellier+'/bouteille/'+data.date_achat+'/usager/'+ data.id_usager, data, httpOption);
     }
 
+    /** POST requête pour modifier la bouteille dans le cellier */
+    modifierUsager(data: IUsager): Observable<any>{
+        console.log(data);
+        
+        let httpOption = {
+            headers : new HttpHeaders({
+                'Content-type': 'application/json',
+                'Authorization' : 'Basic '+ btoa("biero:biero")
+            })
+        };
+        return this.http.post<IProduit>(this.url+'usager/usager/modif/', data, httpOption);
+    }
+
     /** ---- Louis-Etienne, Vsevolod ---- DELETE requête pour supprimer la bouteille dans le cellier */
     effacerBouteille(id_bouteille:string, id_cellier:string):Observable<any>{
         return this.http.delete<IProduit>(this.url+'cellier/cellier/'+id_cellier+'/'+id_bouteille+'/suppression');
+    }
+
+    /** ---- Bita ---- DELETE requête pour supprimer la bouteille dans le cellier */
+    effacerCellier(id_cellier:string):Observable<any>{
+        return this.http.delete<IProduit>(this.url+'cellier/cellier/'+id_cellier+'/suppression');
     }
 
     /** ---- DMITRIY --- PUT requête pour ajouter la bouteille dans le cellier */
