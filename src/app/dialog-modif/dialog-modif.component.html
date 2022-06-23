@@ -15,7 +15,7 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Notes :</mat-label>
-            <input matInput formControlName="notes" placeholder="Nombre entier">
+            <input matInput formControlName="note" placeholder="Nombre entier">
             <mat-hint></mat-hint>
         </mat-form-field>
         <mat-form-field appearance="outline">
@@ -38,7 +38,7 @@
 <!--Boutons-->
 <div mat-dialog-action [align]="'end'">
     <button mat-raised-button color="success" [disabled]="!modifierBouteilleForm.dirty || !modifierBouteilleForm.valid" (click)="modifierBouteille()">Modifier</button>
-    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>
 </div>
 
 
