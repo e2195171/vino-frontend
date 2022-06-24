@@ -59,19 +59,6 @@ export class ApibieroService {
     }
 
     /** POST requête pour modifier la bouteille dans le cellier */
-    modifierBouteille(data: IProduit): Observable<any>{
-        console.log(data);
-        
-        let httpOption = {
-            headers : new HttpHeaders({
-                'Content-type': 'application/json',
-                'Authorization' : 'Basic '+ btoa("biero:biero")
-            })
-        };
-        return this.http.post<IProduit>(this.url+'cellier/cellier/'+data.id_cellier+'/bouteille/'+data.date_achat+'/usager/'+ data.id_usager, data, httpOption);
-    }
-
-    /** POST requête pour modifier la bouteille dans le cellier */
     modifierUsager(data: IUsager): Observable<any>{
         console.log(data);
         
@@ -81,7 +68,7 @@ export class ApibieroService {
                 'Authorization' : 'Basic '+ btoa("biero:biero")
             })
         };
-        return this.http.post<IProduit>(this.url+'usager/usager/modif/', data, httpOption);
+        return this.http.post<IProduit>(this.url+'usager/usager/modif', data, httpOption);
     }
 
     /** POST requête pour modifier la bouteille dans le cellier */
@@ -94,12 +81,25 @@ export class ApibieroService {
                 'Authorization' : 'Basic '+ btoa("biero:biero")
             })
         };
-        return this.http.post<ICellier>(this.url+'cellier/cellier/'+data.cellier_id_cellier+'/modif/', data, httpOption);
+        return this.http.post<ICellier>(this.url+'cellier/cellier/'+data.cellier_id_cellier+'/modif', data, httpOption);
+    }
+
+    /** ---- Vsevolod ---- POST requête pour modifier la bouteille dans le cellier */
+    modifierBouteille(data: IProduit): Observable<any>{
+        console.log(data);
+        
+        let httpOption = {
+            headers : new HttpHeaders({
+                'Content-type': 'application/json',
+                'Authorization' : 'Basic '+ btoa("biero:biero")
+            })
+        };
+        return this.http.post<IProduit>(this.url+'cellier/cellier/'+data.id_cellier+'/'+data.id_bouteille+'/'+data.id_achats+'/modif', data, httpOption);
     }
 
     /** ---- Louis-Etienne, Vsevolod ---- DELETE requête pour supprimer la bouteille dans le cellier */
-    effacerBouteille(id_bouteille:string, id_cellier:string):Observable<any>{
-        return this.http.delete<IProduit>(this.url+'cellier/cellier/'+id_cellier+'/'+id_bouteille+'/suppression');
+    effacerBouteille(id_bouteille:string, id_cellier:string, id_achats:string):Observable<any>{
+        return this.http.delete<IProduit>(this.url+'cellier/cellier/'+id_cellier+'/'+id_bouteille+'/'+id_achats+'/suppression');
     }
 
     /** ---- Bita ---- DELETE requête pour supprimer la bouteille dans le cellier */
@@ -147,7 +147,7 @@ export class ApibieroService {
                 'Authorization' : 'Basic '+ btoa("biero:biero")
             })                                                                                                    
         };                                                                                                                  
-        return this.http.put<IListeProduit>(this.url+'cellier/cellier/'+data.id_cellier+"/"+data.id_bouteille+"/"+data.id_achats+"/quantite/",httpOption);
+        return this.http.put<IListeProduit>(this.url+'cellier/cellier/'+data.id_cellier+"/"+data.id_bouteille+"/"+data.id_achats+"/quantite",httpOption);
     }
 
     /** PUT requête pour reduire la quantité de bouteilles avec le même id dans le cellier */
@@ -158,7 +158,7 @@ export class ApibieroService {
                 'Authorization' : 'Basic '+ btoa("biero:biero")
             })                                                                                               
         };                                                                                                                 
-        return this.http.delete<any>(this.url+'cellier/cellier/'+data.id_cellier+"/"+data.id_bouteille+"/"+data.id_achats+"/quantite/",httpOption);
+        return this.http.delete<any>(this.url+'cellier/cellier/'+data.id_cellier+"/"+data.id_bouteille+"/"+data.id_achats+"/quantite",httpOption);
     }
 
     /** GET requête pour afficher la bouteille */

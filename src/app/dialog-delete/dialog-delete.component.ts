@@ -27,10 +27,8 @@ export class DialogDeleteComponent implements OnInit {
     effacerBouteille():void{
         let id_bouteille = this.editData.id_bouteille;
         let id_cellier = this.editData.id_cellier;
-        console.log(id_cellier)
-        console.log(id_bouteille)
-
-        this.bieroServ.effacerBouteille(id_bouteille, id_cellier).subscribe({
+        let id_achats = this.editData.id_achats;
+        this.bieroServ.effacerBouteille(id_bouteille, id_cellier, id_achats).subscribe({
         next:(reponse)=>{
             this.dialogRef.close('del');  
             console.log('supprimé')

@@ -32,17 +32,18 @@ export class DialogModifComponent implements OnInit {
         this.modifierBouteilleForm = this.formBuilder.group({
             date_achat: ['', [Validators.pattern(this.dateRegex)]],
             garde_jusqua: ['', [Validators.pattern(this.dateRegex)]],
-            notes: ['', [Validators.pattern(this.nombreEntierRegex)]],
+            note: ['', [Validators.pattern(this.nombreEntierRegex)]],
             prix: ['', [Validators.pattern(this.nombreFlottantRegex)]],
             quantite : ['', [Validators.pattern(this.nombreEntierRegex)]],
             millesime : ['', [Validators.pattern(this.anneeRegex)]]
         });
+        console.log(this.editData)
 
         /** Affectation des données du formulaire aux valeurs à envoyer à la base de données */
         if(this.editData){
             this.modifierBouteilleForm.controls['date_achat'].setValue(this.editData.date_achat);
             this.modifierBouteilleForm.controls['garde_jusqua'].setValue(this.editData.garde_jusqua);
-            this.modifierBouteilleForm.controls['notes'].setValue(this.editData.notes);
+            this.modifierBouteilleForm.controls['note'].setValue(this.editData.note);
             this.modifierBouteilleForm.controls['prix'].setValue(this.editData.prix);
             this.modifierBouteilleForm.controls['quantite'].setValue(this.editData.quantite);
             this.modifierBouteilleForm.controls['millesime'].setValue(this.editData.millesime);
@@ -52,13 +53,16 @@ export class DialogModifComponent implements OnInit {
     /** Envoi de nouvelles données du formulaire vers la base de données */
     modifierBouteille():void{
         if (this.modifierBouteilleForm.valid) {
-            const id_usager = sessionStorage.id_usager;
+            // const id_usager = sessionStorage.id_usager;
             const bouteille: IProduit = this.modifierBouteilleForm.value;  
             bouteille.id_cellier = this.editData.id_cellier;
-            bouteille.id_usager = id_usager;
+            bouteille.id_bouteille = this.editData.id_bouteille;
+            bouteille.id_achats = this.editData.id_achats;
+            // bouteille.id_usager = id_usager;
             this.bieroServ.modifierBouteille(bouteille).subscribe({
             next:(reponse)=>{
-                this.dialogRef.close('mod');  
+                this.dialogRef.close('mod'); 
+                console.log('modifié') 
             },
             error:(reponse)=>{
                 this.dialogRef.close('mod');

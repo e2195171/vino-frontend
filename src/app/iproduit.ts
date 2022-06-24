@@ -4,7 +4,7 @@ export interface IProduit {
     date_achat: string;
     id_achats: string;
     garde_jusqua:string;
-    notes:string;
+    note:string;
     prix:string // Non obligatoire
     quantite:string;
     millesime:string;
