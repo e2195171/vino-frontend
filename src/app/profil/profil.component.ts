@@ -74,21 +74,6 @@ export class ProfilComponent implements OnInit {
         })
     }
 
-    /** Afficher le cellier avec id du cellier */
-    // getCeCellier(cellier:IProduit) {
-    //     this.cellierComponent.getCeCellier(cellier)
-    //     .subscribe({
-    //         next:(res)=>{
-    //             this.dataSourceCellier = new MatTableDataSource(res.data);
-    //             this.dataSourceCellier.paginator = this.paginator;
-    //             this.dataSourceCellier.sort = this.sort;
-    //         },
-    //         error:(err)=>{
-    //             alert("erreur")
-    //         }
-    //     })
-    // }
-
     /** Liste d'information d'usager */
     getMonProfil() {
         const id_usager = sessionStorage.id_usager;
@@ -96,30 +81,13 @@ export class ProfilComponent implements OnInit {
         .subscribe({
             next:(res)=>{
                 this.usager = res.data[0];
-                console.log(this.usager);
-
             },
             error:(err)=>{
                 alert("erreur")
             }
         })
     }
-    //getMonProfil(){
-    //    this.bieroServ.getProfil()
-    //    .subscribe({
-    //        next:(res)=>{
-    //            this.dataSourceUsager = new MatTableDataSource(res.data);
-    //            console.log(res.data);
-    //            
-    //            this.dataSourceUsager.paginator = this.paginator;
-    //            this.dataSourceUsager.sort = this.sort;
-    //        },
-    //        error:(err)=>{
-    //            alert("erreur")
-    //        }
-    //    })
-    //}
-   
+    
     /** Filtre */
     applyFilter(event: Event) {
         const filterValue = (event.target as HTMLInputElement).value;
