@@ -54,31 +54,29 @@
         </mat-tab>
         <!--Liste d'information personnelle'-->
         <mat-tab label="Mes informations">
-            <ng-container *ngFor="let unUsager of usager">
+            <ng-container >
             <mat-card class="card" >
                 <mat-card-header>
-                    <img mat-card-avatar="" class="mat-card-avatar header-image" src="{{unUsager.image_url}}" alt="{{unUsager.nom_usager}}">
-                    <mat-card-title>{{unUsager.prenom}}</mat-card-title>
-                    <mat-card-title>{{unUsager.nom_usager}}</mat-card-title>
-                    <mat-card-subtitle>{{unUsager.courriel}}</mat-card-subtitle>
+                    <img mat-card-avatar="" class="mat-card-avatar header-image" src="{{usager.image_url}}" alt="{{usager.nom_usager}}">
+                    <mat-card-title>{{usager.prenom}}</mat-card-title>
+                    <mat-card-title>{{usager.nom_usager}}</mat-card-title>
+                    <mat-card-subtitle>{{usager.courriel}}</mat-card-subtitle>
                 </mat-card-header>
                
                 <mat-card-content >
                     <p>
-                        Phone : {{unUsager.phone}}
+                        Phone : {{usager.phone}}
                     </p>
                     <p>
-                        Adresse : {{unUsager.adresse_usager}}
+                        Adresse : {{usager.adresse_usager}}
                     </p>
                     <p>
-                        Ville : {{unUsager.nom}}
+                        Ville : {{usager.nom}}
                     </p>
                 </mat-card-content>
                 <mat-card-actions>
-                    <!--
                     <a class="liste__btn-saq-creer fill" mat-raised-button (click)="editDialogUsager(usager)">Modifier mon profil</a>
                     <a class="liste__btn-saq-creer fill" mat-raised-button (click)="createDialogCellier()">Modifier mot de passe</a>
-                    -->
                 </mat-card-actions>
             </mat-card>
         </ng-container>
