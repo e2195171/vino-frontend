@@ -14,7 +14,7 @@
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
     </mat-form-field>
     <!--Liste des bouteilles-->
-    <div class="mat-elevation-z8">
+    <div>
         <table class="table" mat-table [dataSource]="dataSource" matSort>
             <ng-container matColumnDef="image">
                 <th mat-header-cell *matHeaderCellDef> <span>Image</span>  </th>
