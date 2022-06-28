@@ -1,9 +1,7 @@
 import { Component, Inject, OnInit, Input } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ApibieroService } from '../Serv/apibiero.service';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { IProduit } from '../iproduit';
-import { IUser } from '../iuser';
 import { IUsager } from './../iusager';
 
 @Component({
@@ -20,7 +18,6 @@ export class DialogModifUsagerComponent implements OnInit {
     constructor(
                     private formBuilder: FormBuilder,
                     public dialogRef: MatDialogRef<DialogModifUsagerComponent>,
-                   // @Inject(MAT_DIALOG_DATA) public editData: IUsager,
                     private bieroServ: ApibieroService
                 ) { }
     
@@ -39,9 +36,8 @@ export class DialogModifUsagerComponent implements OnInit {
     passwordRegex = /[^\s]/;   
     confirmRegex = /[^\s]/;
 
-    
-
     ngOnInit(): void {
+        /** Forme et validation des données saisies */
         this.modifierProfilForm = this.formBuilder.group({
             nom: ['', [Validators.pattern(this.nomRegex)]],
             prenom: ['', [Validators.pattern(this.prenomRegex)]],
@@ -52,7 +48,7 @@ export class DialogModifUsagerComponent implements OnInit {
         });
 
         const id = sessionStorage.id_usager;
-        /** Forme et validation des données saisies */
+        
         this.bieroServ.getListeVilles().subscribe((data: any) => { this.villes = data.data; })
         
         const id_usager = sessionStorage.id_usager;
@@ -62,16 +58,7 @@ export class DialogModifUsagerComponent implements OnInit {
                 this.usager = res.data[0];
                 
                 console.log(this.usager);
-                /** Forme */
-                // this.modifierProfilForm = new FormGroup ({
-                //     nom_usager: new FormControl(this.usager['nom_usager']),
-                //     prenom: new FormControl(this.usager['prenom']),
-                //     courriel: new FormControl(this.usager['courriel']),
-                //     phone: new FormControl(this.usager['phone']),
-                //     adresse_usager: new FormControl(this.usager['adresse_usager']),
-                //     id_ville: new FormControl(this.usager['id_ville'])                    
-                // })
-
+                /** Affecter des données dans un formulaire */
                 this.modifierProfilForm = this.formBuilder.group({
                     nom: [this.usager.nom_usager],
                     prenom: [this.usager.prenom],
@@ -81,10 +68,6 @@ export class DialogModifUsagerComponent implements OnInit {
                     id_ville: [this.usager.id_ville]
                 })
                 console.log(this.modifierProfilForm.value);
-                
-                // this.modifierProfilForm.patchValue({
-                //     courriel: this.usager.courriel,
-                //   });console.log(this.modifierProfilForm.value);
             },
             error:(err)=>{
                 alert("erreur")
