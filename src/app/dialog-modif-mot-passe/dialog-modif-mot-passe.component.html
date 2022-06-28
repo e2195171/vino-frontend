@@ -1,1 +1,29 @@
-<p>dialog-modif-mot-passe works!</p>
+<h1 mat-dialog-title>Modification de mot de passe</h1>
+<div mat-dialog-content>
+    <form [formGroup]="modifierMotPasseForm" action="">
+        
+        <!--Inputs-->
+        <mat-form-field appearance="outline">
+            <mat-label>Mot de passe existant :</mat-label>
+            <input type="password" matInput formControlName="mot_passe_existe" placeholder="Entrer mot de passe existant">
+            <mat-hint></mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Nouveau mot de passe :</mat-label>
+            <input type="password" matInput formControlName="mot_passe" placeholder="Entrer un nouveau mot de passe">
+            <mat-hint></mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Confirme mot de passe :</mat-label>
+            <input type="password" formControlName="confirmpassword" matInput placeholder="Confirmer votre mot de passe">
+            <mat-hint></mat-hint>
+        </mat-form-field>
+        
+    </form>
+</div>
+<!--Boutons-->
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="accent" [disabled]="!modifierMotPasseForm.dirty || !modifierMotPasseForm.valid" (click)="modifierMotPasse()">Modifier</button>
+    <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+</div>
+
