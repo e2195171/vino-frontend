@@ -4,7 +4,7 @@
             <!--<img class="img" src="./../../wine-glass-logo.gif" alt="">-->
             Vino
         </button>
-        <span class="header__title">&nbsp;{{sTitre}}</span>
+        <!--<span class="header__title">&nbsp;{{sTitre}}</span>-->
     </div>
         
 
@@ -12,22 +12,20 @@
     <div>
         <ng-container *ngIf="!connect()">
             <div class="auth">
-                <button mat-raised-button class="liste__btn" routerLink="" (click)="openLogin()" aria-label="Example icon button with a home icon">
-                    Connexion
+                <button mat-mini-fab class="liste__btn" routerLink="" (click)="openLogin()" aria-label="Example icon button with a home icon">
+                    <mat-icon>login</mat-icon>
                 </button>
-                <button mat-raised-button class="liste__btn" routerLink="" (click)="openRegister()" aria-label="Example icon button with a home icon">
-                    S'inscrire
+                <button mat-mini-fab class="liste__btn" routerLink="" (click)="openRegister()" aria-label="Example icon button with a home icon">
+                    <mat-icon>person_add</mat-icon>
                 </button>
             </div>
         </ng-container>
         <ng-container *ngIf="connect()">
-            <button mat-fab class="liste__btn" routerLink="usager" aria-label="Example icon button with a home icon">
-                <span class="material-icons">
-                    person_outline
-                </span>
+            <button mat-mini-fab class="liste__btn" routerLink="usager" aria-label="Example icon button with a home icon">
+                <mat-icon>person</mat-icon>
             </button>
-            <button mat-raised-button class="liste__btn" routerLink="" (click)="logout()" [(ngModel)]="estConnecte" aria-label="Example icon button with a home icon">
-                Logout
+            <button mat-mini-fab class="liste__btn" routerLink="accueil" (click)="logout()" [(ngModel)]="estConnecte" aria-label="Example icon button with a home icon">
+                <mat-icon>logout</mat-icon>
             </button>
         </ng-container>
 

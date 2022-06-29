@@ -41,7 +41,7 @@ export class ProfilComponent implements OnInit {
         private authServ: AuthService,
         private bieroServ: ApibieroService,
         public dialog: MatDialog,
-        private data: DataService
+        private data: DataService,
     ) { 
         
     }
@@ -98,7 +98,7 @@ export class ProfilComponent implements OnInit {
         }
     }
 
-    /** Bouton Modifier la bouteille */
+    /** Bouton Modifier un cellier */
     editDialogCellier(cellier:ICellier): void {
         const dialogRef = this.dialog.open(DialogModifCellierComponent, {
             width: '100%',
@@ -110,7 +110,7 @@ export class ProfilComponent implements OnInit {
         });
     }
 
-    /** Bouton Modifier la bouteille */
+    /** Bouton Supprimer un cellier */
     deleteDialogCellier(cellier:IProduit): void {
         const dialogRef = this.dialog.open(DialogSupprimCellierComponent, {
             width: '100%',
@@ -122,9 +122,8 @@ export class ProfilComponent implements OnInit {
         });
     }
 
-    /** Bouton Ajouter une bouteille */
+    /** Bouton Ajouter un cellier */
     createDialogCellier(): void {
-        this.getMesCelliers();
         this.dialog.open(DialogAjoutCellierComponent, {
             width: '100%',
             maxWidth: '370px',
