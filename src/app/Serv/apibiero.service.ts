@@ -58,10 +58,9 @@ export class ApibieroService {
         return this.http.get<IUsager>(this.url+'usager/usager/'+id);
     }
 
-    /** POST requête pour modifier la bouteille dans le cellier */
+    /** POST requête pour modifier les informations dans profil */
     modifierUsager(data: IUsager): Observable<any>{
-        console.log(data);
-        
+       
         let httpOption = {
             headers : new HttpHeaders({
                 'Content-type': 'application/json',
@@ -73,8 +72,7 @@ export class ApibieroService {
 
     /** POST requête pour modifier la bouteille dans le cellier */
     modifierCellier(data: ICellier): Observable<any>{
-        console.log(data);
-        
+
         let httpOption = {
             headers : new HttpHeaders({
                 'Content-type': 'application/json',

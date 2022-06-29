@@ -9,4 +9,6 @@ export interface IUsager {
     id_ville: string;
     nom: string;
     image_url: string;
+    mot_passe: string;
+    confirmpassword: string;
 }
