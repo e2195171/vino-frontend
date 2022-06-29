@@ -1,31 +1,62 @@
-
-.btn{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+article{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+align-items: flex-start;
+height: calc(100% - 65px);
+padding-top: 65px;
+width: 100%;
+//background-image: url("~src/assets/img/redwhite.jpg");
+background-size: cover;
+background-position: bottom center;
+background-repeat: no-repeat;
+.auth{
+  //height: 100%;
+  justify-content: flex-start;
+  margin-top: 10%;
+}
+.logo__wrapper{
+  height: 100px;
+  img{
+    height: 100%;
+    max-width: 90%;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+  .img1 {
+    height: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+}
 }
 
 .img{
-    margin-left: 5vw;
+  //margin-left: 5vw;
+  //margin-top: 5vw;
+}
+
+.img1{
+//margin-left: 5vw;
 }
 
 
 @media screen and (min-width: 768px){
-    .img{
-        margin-left: 2vw;
-    }
+  .img{
+      margin-left: 2vw;
+      margin-top: -4vw;
+  }
 }
 
 .auth{
-    display: flex;
-    flex-direction: column;
-    // justify-content: space-around;
-    align-items: center;
-    margin-top: 33vh;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-around;
+  align-items: center;
+  //margin-top: 33vh;
 }
 
 button{
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
