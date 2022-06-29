@@ -36,6 +36,7 @@ import { MatListModule } from '@angular/material/list';
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 import { DialogLoginComponent } from './dialog-login/dialog-login.component';
 import { DialogRegisterComponent } from './dialog-register/dialog-register.component';
+import { DialogInvitationComponent } from './dialog-invitation/dialog-invitation.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { DialogRegisterComponent } from './dialog-register/dialog-register.compo
         DialogSupprimCellierComponent,
         DialogDeleteComponent,
         DialogLoginComponent,
-        DialogRegisterComponent
+        DialogRegisterComponent,
+        DialogInvitationComponent
     ],
     entryComponents:[DialogAjoutBouteilleComponent],
     imports: [

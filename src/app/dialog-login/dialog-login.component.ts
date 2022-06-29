@@ -5,6 +5,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { IUser } from '../iuser';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { DialogInvitationComponent } from '../dialog-invitation/dialog-invitation.component';
 
 @Component({
     selector: 'app-dialog-login',
@@ -27,6 +28,7 @@ export class DialogLoginComponent implements OnInit {
                     private router : Router,
                     private authServ : AuthService,
                     public dialogRef: MatDialogRef<DialogLoginComponent>,
+                    public dialog: MatDialog,
                     // private authServ: AuthService
                 ) { }
 
@@ -38,9 +40,9 @@ export class DialogLoginComponent implements OnInit {
     ngOnInit(): void {
         /** Obtenir une nomenclature des bouteilles importées de la SAQ */
         // this.authServ.getLoggedUser().subscribe((data: any) => { this.loggedUser = data.data; })
-        this.authServ.statut().subscribe(bLogin=>{
-            this.estConnecte = bLogin;
-        })
+        // this.authServ.statut().subscribe(bLogin=>{
+        //     this.estConnecte = bLogin;
+        // })
         /** Forme et validation des données saisies */
         this.loginForm = this.formBuilder.group({
             courriel : ['', [Validators.required, Validators.pattern(this.courrielRegex)]],
@@ -66,9 +68,10 @@ export class DialogLoginComponent implements OnInit {
                 //     this.authServ.setConnexion(this.estConnecte);
                 //     this.onNoClick();
                 // });
-                console.log(user);
                 
-                if(user){
+                
+                if (user) {
+                    console.log(user);
                     //changer l'etat de la connexion dans le service
                     this.authServ.setConnexion(!this.estConnecte);
                     this.loginForm.reset();
@@ -77,6 +80,7 @@ export class DialogLoginComponent implements OnInit {
                     
                     this.authServ.setTitre('Mon cellier');
                     this.router.navigateByUrl("/usager");
+
                     this.onNoClick();
                 } else {
                     alert("Utilisateur non trouvé")
