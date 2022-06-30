@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>Ajouter une bouteille</h1>
-Ce mon {{cellierData}}
+
 <div mat-dialog-content>
     <form [formGroup]="creerBouteilleForm" action="">
         <!--Select de la bouteille-->
@@ -46,5 +46,5 @@ Ce mon {{cellierData}}
 <!--Boutons-->
 <div mat-dialog-action [align]="'end'">
     <button mat-raised-button color="success" [disabled]="!creerBouteilleForm.dirty || !creerBouteilleForm.valid" (click)="ajouterBouteille()">Ajouter</button>
-    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+    <button class="btn" mat-raised-button color="warn" mat-dialog-close>Cancel</button>
 </div>

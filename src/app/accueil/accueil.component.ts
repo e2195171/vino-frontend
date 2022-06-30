@@ -29,7 +29,7 @@ export class AccueilComponent implements OnInit {
    }
 
     ngOnInit(): void {
-            this.authServ.setTitre("Accueil");
+            this.authServ.setTitre("Vino");
             this.authServ.statut().subscribe(bLogin=>{
             this.estConnecte = bLogin;
         })
@@ -39,31 +39,33 @@ export class AccueilComponent implements OnInit {
         })
     }
 
-    /** Bouton Ajouter une bouteille */
+    /** Connexion */
     openLogin(): void {
+        sessionStorage['estConnecte'] = false;
         this.dialog.open(DialogLoginComponent, {
             width: '90%',
             maxWidth: '300px',
             data: this.loggedUser
-        }).afterClosed().subscribe(()=>{
-            //alert('logged in');
-            // this.getLoggedUser();
-            this.dialog.open(DialogInvitationComponent, {
-                width: '100%',
-                maxWidth: '370px',
-                maxHeight: '540px'
-            }).afterClosed().subscribe(res => {
-                
-                this.router.navigateByUrl("/accueil", { skipLocationChange: true }).then(() => {
-                    this.router.navigate(['/usager']);
-                });
-            });
+        }).afterClosed().subscribe(() => {
             
+            if (sessionStorage['estConnecte'] === 'true') {
+                
+                //alert('logged in');
+                // this.getLoggedUser();
+                this.dialog.open(DialogInvitationComponent, {
+                    width: '100%',
+                    maxWidth: '370px',
+                    maxHeight: '540px'
+                }).afterClosed().subscribe(res => {
+                    this.router.navigateByUrl("/accueil", { skipLocationChange: true }).then(() => {
+                        this.router.navigate(['/usager']);
+                    });
+                });
+            }
         });
-        
     }
 
-    /** Bouton Ajouter une bouteille */
+    /** Enregistrement */
     openRegister(): void {
         this.dialog.open(DialogRegisterComponent, {
             width: '90%',

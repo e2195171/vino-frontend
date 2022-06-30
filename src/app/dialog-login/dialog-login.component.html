@@ -3,7 +3,7 @@
     <form [formGroup]="loginForm" action="">
         <!--Inputs-->
         <mat-form-field appearance="outline">
-            <mat-label>Courriel :</mat-label>
+            <mat-label>Connexion :</mat-label>
             <input matInput formControlName="courriel" placeholder="Entrer votre courriel">
             <mat-hint></mat-hint>
         </mat-form-field>
@@ -16,7 +16,7 @@
 </div>
 <!--Boutons-->
 <div mat-dialog-action [align]="'end'">
-    <button mat-raised-button color="accent" [disabled]="!loginForm.dirty || !loginForm.valid" (click)="login()" [(ngModel)]="estConnecte">
+    <button style="background-color: #4F3E3E;color: white;" mat-raised-button  [disabled]="!loginForm.dirty || !loginForm.valid" (click)="login()" [(ngModel)]="estConnecte">
         Connexion
     </button>
 </div>
