@@ -8,6 +8,7 @@ import { DialogLoginComponent } from '../dialog-login/dialog-login.component';
 import { DialogRegisterComponent } from '../dialog-register/dialog-register.component';
 import { IUser } from '../iuser';
 import { Router } from '@angular/router';
+import { DialogInvitationComponent } from '../dialog-invitation/dialog-invitation.component';
 
 @Component({
     selector: 'app-entete',
@@ -37,18 +38,32 @@ export class EnteteComponent implements OnInit {
         })
     }
 
-    /** Bouton Ajouter une bouteille */
+    /** Connexion */
     openLogin(): void {
+        sessionStorage['estConnecte'] = false;
         this.dialog.open(DialogLoginComponent, {
             width: '30%',
             data: this.loggedUser
-        }).afterClosed().subscribe(res=>{
-            // alert('logged in');
-            // this.getLoggedUser();
+        }).afterClosed().subscribe(res => {
+            
+            if (sessionStorage['estConnecte'] === 'true') {
+                
+                // alert('logged in');
+                // this.getLoggedUser();
+                this.dialog.open(DialogInvitationComponent, {
+                    width: '100%',
+                    maxWidth: '370px',
+                    maxHeight: '540px'
+                }).afterClosed().subscribe(res => {
+                    this.route.navigateByUrl("/accueil", { skipLocationChange: true }).then(() => {
+                        this.route.navigate(['/usager']);
+                    });
+                });
+            }    
         });
     }
 
-    /** Bouton Ajouter une bouteille */
+    /** Enregistrement */
     openRegister(): void {
         this.dialog.open(DialogRegisterComponent, {
             width: '30%',

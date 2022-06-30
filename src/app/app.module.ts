@@ -37,7 +37,7 @@ import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 import { DialogLoginComponent } from './dialog-login/dialog-login.component';
 import { DialogRegisterComponent } from './dialog-register/dialog-register.component';
 import { DialogInvitationComponent } from './dialog-invitation/dialog-invitation.component';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
     declarations: [
@@ -82,7 +82,8 @@ import { DialogInvitationComponent } from './dialog-invitation/dialog-invitation
         MatSelectModule,
         MatTabsModule,
         MatCardModule,
-        MatListModule
+        MatListModule,
+        MatDatepickerModule
     ],
 
     
