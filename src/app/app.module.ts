@@ -82,9 +82,9 @@ import { DialogInvitationComponent } from './dialog-invitation/dialog-invitation
         MatSelectModule,
         MatTabsModule,
         MatCardModule,
-        MatListModule
+        MatListModule,
     ],
-
+    
     
     providers: [],
     bootstrap: [AppComponent]
