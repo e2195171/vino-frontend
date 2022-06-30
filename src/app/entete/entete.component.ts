@@ -61,7 +61,7 @@ export class EnteteComponent implements OnInit {
 
     logout():boolean{
         this.authServ.setConnexion(!this.estConnecte);
-        this.authServ.setTitre('Accueil');
+        this.authServ.setTitre('Vino');
         this.route.navigateByUrl("");
         return this.authServ.getConnexion();
     }
