@@ -29,7 +29,7 @@ export class AccueilComponent implements OnInit {
    }
 
     ngOnInit(): void {
-            this.authServ.setTitre("Accueil");
+            this.authServ.setTitre("Vino");
             this.authServ.statut().subscribe(bLogin=>{
             this.estConnecte = bLogin;
         })
