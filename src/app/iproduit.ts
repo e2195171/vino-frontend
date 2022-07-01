@@ -1,5 +1,6 @@
 export interface IProduit {
-    id_cellier:string;
+    id_cellier: string;
+    cellier_nom: string;
     id_bouteille:string;
     date_achat: string;
     id_achats: string;

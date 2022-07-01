@@ -12,7 +12,7 @@
     }
     .bouteille__img {
         margin: 0;
-        height: 200px !important;
+        height: 100px !important;
         width: auto;
     }
     .mat-raised-button {
@@ -53,7 +53,9 @@
         vertical-align: middle;
         line-height: 60%;
     }
-
+    .mat-typography p {
+        margin: 0 0 5px !important;
+    }    
     .mat-table caption {
         font-size: 1em;
     }
@@ -69,8 +71,8 @@
         text-align: center;
         font-weight: bold;
         height:auto;
-        margin-bottom: 1%;
-        line-height: 0.5;
+        margin-bottom: 3px;
+        line-height: 0.1;
     }
 
     .mat-table .mat-cell:before {
@@ -84,7 +86,7 @@
         border-bottom: 0;
     }
     .mat-table .mat-cell:last-child {
-        height: 50px;
+        height: 40px;
         margin-top: 0px;
         border-bottom: 1px solid #ddd;
     }
@@ -108,6 +110,9 @@
     }
     .th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
         padding: 0;
+    }
+    button+button {
+        margin-top: 0;
     }
 
 }
@@ -344,7 +349,7 @@
         font-size: 12px;
         min-width: 30px;
         padding: 0 6px;
-        line-height: 24px;
+        line-height: 18px;
     }
 }
 @media screen and (max-width: 940px) {

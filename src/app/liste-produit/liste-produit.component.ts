@@ -21,7 +21,7 @@ export class ListeProduitComponent implements OnInit {
 
     estEditable:boolean= false;
     
-    displayedColumns: string[] = ["image","nom","quantite","pays", "type", "millesime", "voir", "action" ];
+    displayedColumns: string[] = ["image", "nom", "cellier", "quantite", "pays", "type", "millesime", "voir", "action" ];
     dataSource !: MatTableDataSource<IProduit>;
 
     @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -32,17 +32,20 @@ export class ListeProduitComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.getAllBouteillesCellier();
+        this.getAllBouteillesUsager();
+
         this.authServ.setTitre("Mon cellier");
         this.authServ.setConnexion(true);
     }
 
-    /** Liste des bouteilles du cellier */
-    getAllBouteillesCellier(){
-        this.bieroServ.getBouteillesCellier()
+    /** Liste des bouteilles d'usager */
+    getAllBouteillesUsager() {
+        const id_usager = sessionStorage.getItem("id_usager");
+        this.bieroServ.getAllBouteillesUsager(id_usager)
         .subscribe({
-            next:(res)=>{
+            next: (res) => {
                 this.dataSource = new MatTableDataSource(res.data);
+                console.log(res.data);
                 this.dataSource.paginator = this.paginator;
                 this.dataSource.sort = this.sort;
             },
@@ -70,21 +73,21 @@ export class ListeProduitComponent implements OnInit {
             maxHeight: '540px',
             data:bouteille
         }).afterClosed().subscribe(res=>{
-            this.getAllBouteillesCellier();
+            this.getAllBouteillesUsager();
         });
         
     }
 
     /** Bouton Ajouter une bouteille */
     openDialog(): void {
-        this.getAllBouteillesCellier();
+        this.getAllBouteillesUsager();
         this.dialog.open(DialogAjoutBouteilleComponent, {
             width: '100%',
             maxWidth: '370px',
             maxHeight: '540px',
             data: this.bouteille
         }).afterClosed().subscribe(res=>{
-            this.getAllBouteillesCellier();
+            this.getAllBouteillesUsager();
         });
     }
 
@@ -96,7 +99,7 @@ export class ListeProduitComponent implements OnInit {
             maxHeight: '540px',
             data:bouteille
         }).afterClosed().subscribe(res=>{
-            this.getAllBouteillesCellier();
+            this.getAllBouteillesUsager();
         });
     }
 
