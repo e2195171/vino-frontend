@@ -13,13 +13,17 @@
         <!--Inputs-->
         <mat-form-field appearance="outline">
             <mat-label>Date d'achat :</mat-label>
-            <input matInput formControlName="date_achat" placeholder="AAAA-MM-JJ">
-            <mat-hint></mat-hint>
+            <input matInput formControlName="date_achat" [matDatepicker]="picker">
+            <mat-hint>MM/JJ/AAAA</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Garder jusqu'à :</mat-label>
-            <input matInput formControlName="garde_jusqua" placeholder="AAAA-MM-JJ">
-            <mat-hint></mat-hint>
+            <input matInput formControlName="garde_jusqua" [matDatepicker]="picker1">
+            <mat-hint>MM/JJ/AAAA</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Notes :</mat-label>
