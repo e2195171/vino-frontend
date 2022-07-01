@@ -34,13 +34,12 @@ export class ApibieroService {
     /** GET requête pour se connecter*/
     login(data: IUser): Observable<IUser>{
         console.log(data);
-        
         return this.http.get<IUser>(this.url+'usager/login');
     }
 
-    /** GET requête pour afficher les bouteilles du cellier */
-    getBouteillesCellier(): Observable<IListeProduit>{
-        return this.http.get<IListeProduit>(this.url+'bouteille');
+    /** GET requête pour afficher les bouteilles d'usager */
+    getAllBouteillesUsager(id_usager: any): Observable<IListeProduit>{
+        return this.http.get<IListeProduit>(this.url+'usager/bouteilles/'+id_usager);
     }
 
     /** ---- DMITRIY --- GET requête pour afficher les bouteilles du cellier */

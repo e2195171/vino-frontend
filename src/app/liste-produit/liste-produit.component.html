@@ -21,13 +21,17 @@
                 <th mat-header-cell *matHeaderCellDef mat-sort-header="nom" > Nom </th>
                 <td mat-cell class="left" *matCellDef="let bouteille"> {{bouteille.nom}} </td>
             </ng-container>
+            <ng-container matColumnDef="cellier">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="cellier" > Cellier </th>
+                <td mat-cell class="left" *matCellDef="let bouteille"> {{bouteille.cellier_nom}} </td>
+            </ng-container>
             <ng-container matColumnDef="quantite">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header="quantite"> Quantité </th>
                 <td mat-cell *matCellDef="let bouteille"> {{bouteille.quantite}} </td>
             </ng-container>
             <ng-container matColumnDef="pays">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header="pays"> Pays </th>
-                <td mat-cell *matCellDef="let bouteille"> {{bouteille.pays}} </td>
+                <td mat-cell *matCellDef="let bouteille"> {{bouteille.pays_nom}} </td>
             </ng-container>
             <ng-container matColumnDef="type">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header="type"> Type </th>
