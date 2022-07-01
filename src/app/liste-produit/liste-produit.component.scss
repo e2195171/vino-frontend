@@ -1,5 +1,5 @@
 
-@media screen and (max-width: 485px) {
+@media screen and (max-width: 516px) {
     .liste__btn-saq-creer {
         align-content: center;
         background-color:  #810234;
@@ -12,7 +12,7 @@
     }
     .bouteille__img {
         margin: 0;
-        height: 200px !important;
+        height: 100px !important;
         width: auto;
     }
     .mat-raised-button {
@@ -67,10 +67,9 @@
         display: block;
         font-size: 100% !important;
         text-align: center;
-        font-weight: bold;
         height:auto;
         margin-bottom: 1%;
-        line-height: 0.5;
+        line-height: 0.1;
     }
 
     .mat-table .mat-cell:before {
@@ -90,7 +89,7 @@
     }
 
     .mat-table .mat-cell:first-child {
-        margin-top: 10px;
+        margin-top: 6px;
     }
 
     .bouteille__image{
@@ -111,81 +110,81 @@
     }
 
 }
-@media screen and (max-width: 510px) {
-    th.mat-header-cell:first-of-type {
-        padding-left: 0 ;
-    }
-    td.mat-cell:first-of-type {
-        padding-left: 0;
-        text-align: center;
-    }
-    th.mat-header-cell:last-of-type {
-        padding-right: 0;
-    }
-    .mat-form-field {
-        font-size: 60%;
-    }
-    .liste__btn {
-        margin-right: 0;
-    }
-    .bouteille__img {
-        align-items: center;
-        height: 10vw;
-        width: auto;
-        margin-top: 16px;
-    }
-    .mat-sort-header-content {
-        font-size: 6rem;
-    }
-    th.mat-header-cell, .mat-sort-header-container {
-        text-align: center;
+// @media screen and (max-width: 516px) {
+//     th.mat-header-cell:first-of-type {
+//         padding-left: 0 ;
+//     }
+//     td.mat-cell:first-of-type {
+//         padding-left: 0;
+//         text-align: center;
+//     }
+//     th.mat-header-cell:last-of-type {
+//         padding-right: 0;
+//     }
+//     .mat-form-field {
+//         font-size: 60%;
+//     }
+//     .liste__btn {
+//         margin-right: 0;
+//     }
+//     .bouteille__img {
+//         align-items: center;
+//         height: 10vw;
+//         width: auto;
+//         margin-top: 16px;
+//     }
+//     .mat-sort-header-content {
+//         font-size: 6rem;
+//     }
+//     th.mat-header-cell, .mat-sort-header-container {
+//         text-align: center;
         
-    }
-    td.mat-cell:last-of-type {
-        padding: 5px;
-    }
-    td.mat-cell {
-        text-align: center;
-        font-size: 60%;
-        line-height: 1.2;
-        padding: 5px;
-    }
-    .buttons {
-        padding-top: 12px ;
-    } 
-    .mat-mini-fab {
-        font-size: 2px;
-        width: 20px;
-        height: 20px;
-        line-height: 18px;
-    } 
-    .mat-mini-fab .mat-button-wrapper {
-        padding: 7px 0;
-    }
-    .span.mat-button-wrapper {
-        width: 20px;
-        height: 20px;
-        line-height: 18px;
-        font-size: 3px;
-    } 
-    .mat-ripple {
-        margin-top: 10px;
-    }
-    .mat-icon {
-        padding-top: 0px;
-        width: 20px;
-    }
-    .material-icons {
-        line-height: -0.3;
-        font-size: 14px;
-    }
-    .mat-raised-button {
-        min-width: 30px;
-        padding: 0 6px;
-        line-height: 16px;
-    }
-}
-@media screen and (max-width: 560px) {
+//     }
+//     td.mat-cell:last-of-type {
+//         padding: 5px;
+//     }
+//     td.mat-cell {
+//         text-align: center;
+//         font-size: 50% !important;
+//         line-height: 1.2;
+//         padding: 5px;
+//     }
+//     .buttons {
+//         padding-top: 12px ;
+//     } 
+//     .mat-mini-fab {
+//         font-size: 2px;
+//         width: 20px;
+//         height: 20px;
+//         line-height: 18px;
+//     } 
+//     .mat-mini-fab .mat-button-wrapper {
+//         padding: 7px 0;
+//     }
+//     .span.mat-button-wrapper {
+//         width: 20px;
+//         height: 20px;
+//         line-height: 18px;
+//         font-size: 3px;
+//     } 
+//     .mat-ripple {
+//         margin-top: 10px;
+//     }
+//     .mat-icon {
+//         padding-top: 0px;
+//         width: 20px;
+//     }
+//     .material-icons {
+//         line-height: -0.3;
+//         font-size: 14px;
+//     }
+//     .mat-raised-button {
+//         min-width: 30px;
+//         padding: 0 6px;
+//         line-height: 16px;
+//     }
+// }
+@media screen and (max-width: 555px) {
     .mat-form-field {
         font-size: 60%;
     }
@@ -243,7 +242,7 @@
         line-height: 24px;
     }
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 650px) {
     .mat-form-field {
         font-size: 70%;
     }
@@ -267,12 +266,12 @@
     }
     th.mat-header-cell, .mat-sort-header-container {
         text-align: center;
-        font-size: 60%;
+        font-size: 60% !important;
     }
     td.mat-cell {
         text-align: center;
-        font-size: 70% !important;
-        font-size: 64%;
+        font-size: 60% !important;
+        font-size: 40%;
         line-height: 1.2;
         padding-right: 0 !important;
         padding-left: 0 !important;
@@ -306,13 +305,13 @@
         font-size: 14px;
     }
     .mat-raised-button {
-        font-size: 10px !important;
+        font-size: 8px !important;
         min-width: 30px;
         padding: 0 6px;
         line-height: 24px;
     }
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 796px) {
     .bouteille__img {
         align-items: center;
         height: 6rem;
@@ -321,7 +320,9 @@
     }
     th.mat-header-cell, .mat-sort-header-container {
         text-align: center;
-        
+    }
+    td.mat-cell:first-of-type, th.mat-header-cell:first-of-type {
+        padding-left: 0;
     }
     td.mat-cell {
         text-align: center;
@@ -337,8 +338,9 @@
         font-size: 19px;
     }
 
-    button+button {
+    button {
         margin-top: 5px;
+        margin-bottom: 5px;
     }
     .mat-raised-button {
         font-size: 12px;
@@ -355,7 +357,7 @@
     }
     th.mat-header-cell, .mat-sort-header-container {
         text-align: center;
-        
+        font-size: 80%;
     }
     td.mat-cell {
         text-align: center;
@@ -370,12 +372,20 @@
         line-height: 0.5;
         font-size: 19px;
     }
-
+    .mat-raised-button {
+        font-size: 12px;
+        min-width: 30px;
+        padding: 0 6px;
+        line-height: 24px;
+    }
     button+button {
         margin-top: 5px;
     }
 }
 
+button+button {
+    margin-top: 5px;
+}
 .liste__btn{
     background-color: #4F3E3E;
     color: white;
@@ -385,13 +395,12 @@
 .liste__btn-saq{
     background-color:  #810234;
     color:white;
-    font-weight: bold;
+    
 }
 
 .liste__btn-saq-creer{
     background-color: #4F3E3E;
     color:white;
-    font-weight: bold;
     margin-top: 58px;
 }
 
