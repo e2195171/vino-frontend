@@ -31,7 +31,9 @@ export class DialogAjoutBouteilleComponent implements OnInit {
                 ) { }
 
     /** Modèles d'expression régulière */
-    dateRegex = /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
+    //dateRegex = /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
+    //dateRegex = /(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d/; // mm/dd/yyyy
+    dateRegex = /(0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d/; // dd/mm/yyyy
     nombreEntierRegex = /^\d+$/;
     nombreFlottantRegex = /^[-+]?[0-9]+[.]?[0-9]*([eE][-+]?[0-9]+)?$/;
     anneeRegex = /^(18|19|20)[\d]{2,2}$/;
@@ -47,13 +49,15 @@ export class DialogAjoutBouteilleComponent implements OnInit {
         /** Forme et validation des données saisies */
         this.creerBouteilleForm = this.formBuilder.group({
             id_bouteille: ['', [Validators.required]],
-            date_achat: ['', [Validators.required, Validators.pattern(this.dateRegex)]],
-            garde_jusqua: ['', [Validators.required, Validators.pattern(this.dateRegex)]],
+            date_achat: [''],
+            garde_jusqua: [''],
             notes: ['', [Validators.required, Validators.pattern(this.nombreEntierRegex)]],
             prix: ['', [Validators.required, Validators.pattern(this.nombreFlottantRegex)]],
-            quantite : ['', [Validators.required, Validators.pattern(this.nombreEntierRegex)]],
-            millesime : ['', [Validators.required, Validators.pattern(this.anneeRegex)]]
-        })
+            quantite: ['', [Validators.required, Validators.pattern(this.nombreEntierRegex)]],
+            millesime: ['', [Validators.required, Validators.pattern(this.anneeRegex)]]
+        });
+        console.log(this.creerBouteilleForm.value);
+        
     }
 
     /** Fonction pour ajouter une bouteille au cellier */
