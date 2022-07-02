@@ -2,11 +2,13 @@
     <mat-tab-group>
         <!--Tab Celliers-->
         <mat-tab label="Mes celliers">
-            <!--Bouton Ajouter-->
+            <!--Boutons Ajouter-->
             <div class="create-btn">
                 <a class="liste__btn-saq-creer fill" mat-raised-button (click)="createDialogCellier()">Ajouter un cellier</a>
             </div>
-            
+            <div class="create-btn">
+                <a class="liste__btn-saq-creer fill" mat-raised-button (click)="openDialogBouteilleNonListees()">Ajouter une bouteille non listées</a>
+            </div>
             <!--Filtre-->
             <mat-form-field appearance="standard">
                 <mat-label>Filter</mat-label>

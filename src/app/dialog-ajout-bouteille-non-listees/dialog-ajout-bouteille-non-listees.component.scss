@@ -1,0 +1,26 @@
+mat-form-field{
+    width: 100%;
+}
+
+button{
+    margin-left: 1vw;
+}
+
+input.ng-invalid, textarea.ng-invalid{
+    color: #f00;
+}
+
+input.ng-valid, textarea.ng-valid{
+    color: rgb(41, 3, 145);
+}
+
+.mat-success {
+    background-color:#4F3E3E;
+    ;
+    color: #fff;
+}
+
+.btn{
+    
+    margin-left: 1vw;
+}
