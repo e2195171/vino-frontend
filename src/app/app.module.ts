@@ -20,6 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogAjoutBouteilleComponent } from './dialog-ajout-bouteille/dialog-ajout-bouteille.component';
+import { DialogAjoutBouteilleNonListeesComponent } from './dialog-ajout-bouteille-non-listees/dialog-ajout-bouteille-non-listees.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DialogModifComponent } from './dialog-modif/dialog-modif.component';
 import { MatSelectModule } from '@angular/material/select';
@@ -49,6 +50,7 @@ import { MatNativeDateModule } from '@angular/material/core';
         NonTrouveComponent,
         DetailsProduitComponent,
         DialogAjoutBouteilleComponent,
+        DialogAjoutBouteilleNonListeesComponent,
         DialogModifComponent,
         CellierComponent,
         ProfilComponent,
@@ -87,8 +89,8 @@ import { MatNativeDateModule } from '@angular/material/core';
         MatDatepickerModule,
         MatNativeDateModule
     ],
-
     
+
     providers: [],
     bootstrap: [AppComponent]
 })
