@@ -21,7 +21,7 @@ export class ListeProduitComponent implements OnInit {
 
     estEditable:boolean= false;
     
-    displayedColumns: string[] = ["image", "nom", "cellier", "quantite", "pays", "type", "millesime", "voir", "action" ];
+    displayedColumns: string[] = ["image", "nom", "cellier_nom", "quantite", "pays", "type", "millesime", "voir", "action" ];
     dataSource !: MatTableDataSource<IProduit>;
 
     @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -47,7 +47,9 @@ export class ListeProduitComponent implements OnInit {
                 this.dataSource = new MatTableDataSource(res.data);
                 console.log(res.data);
                 this.dataSource.paginator = this.paginator;
+                               
                 this.dataSource.sort = this.sort;
+                console.log(this.dataSource.sort);
             },
             error:(err)=>{
                 alert("erreur")

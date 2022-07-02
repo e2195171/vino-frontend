@@ -99,7 +99,7 @@ export class CellierComponent implements OnInit {
         const dialogRef = this.dialog.open(DialogModifComponent, {
             width: '100%',
             maxWidth: '370px',
-            maxHeight: '540px',
+            //maxHeight: '540px',
             data:bouteille
         }).afterClosed().subscribe(res=>{
             this.getCeCellier();
