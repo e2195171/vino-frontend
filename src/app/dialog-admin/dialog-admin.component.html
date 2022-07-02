@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Administrer un compte utilisateur</h1>
+<div mat-dialog-content>
+    <form [formGroup]="adminForm" action="">
+        <!--Inputs-->
+        <mat-form-field appearance="outline">
+            <mat-label>Courriel :</mat-label>
+            <input matInput formControlName="courriel" placeholder="Entrer le courriel">
+            <mat-hint></mat-hint>
+        </mat-form-field>
+    </form>
+</div>
+<!--Boutons-->
+<div mat-dialog-action [align]="'end'">
+    <button style="background-color: #4F3E3E;color: white;" mat-raised-button color="accent" [disabled]="!adminForm.dirty || !adminForm.valid" (click)="admin()">Administrer</button>
+</div>

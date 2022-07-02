@@ -6,6 +6,8 @@ import { IUser } from '../iuser';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { DialogInvitationComponent } from '../dialog-invitation/dialog-invitation.component';
+import { DialogAdminComponent } from '../dialog-admin/dialog-admin.component';
+
 
 @Component({
     selector: 'app-dialog-login',
@@ -20,35 +22,26 @@ export class DialogLoginComponent implements OnInit {
     estConnecte!:boolean;
     sTitre!:string;
 
-    // getBouteilleId: any;
-
     constructor(
                     private formBuilder: FormBuilder,
                     private http : HttpClient,
-                    private router : Router,
+                    private route : Router,
                     private authServ : AuthService,
                     public dialogRef: MatDialogRef<DialogLoginComponent>,
                     public dialog: MatDialog,
                     // private authServ: AuthService
                 ) { }
-
     /** Modèles d'expression régulière */
     courrielRegex = /^\S+$/;
     // passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
    
 
     ngOnInit(): void {
-        /** Obtenir une nomenclature des bouteilles importées de la SAQ */
-        // this.authServ.getLoggedUser().subscribe((data: any) => { this.loggedUser = data.data; })
-        // this.authServ.statut().subscribe(bLogin=>{
-        //     this.estConnecte = bLogin;
-        // })
         /** Forme et validation des données saisies */
         this.loginForm = this.formBuilder.group({
             courriel : ['', [Validators.required, Validators.pattern(this.courrielRegex)]],
             mot_passe : ['', []]
         })
-
         this.authServ.getTitre().subscribe(leTitre =>{
             this.sTitre = leTitre;
         })
@@ -61,16 +54,20 @@ export class DialogLoginComponent implements OnInit {
             this.http.get<any>("http://127.0.0.1:8000/webservice/php/usager/login/").subscribe(res=>{
                 console.log(res.data)
                 const user = res.data.find((a:any)=>{
-                    // sessionStorage.setItem("connecte","true");
-                    return a.courriel === this.loginForm.value.courriel && a.mot_passe === this.loginForm.value.mot_passe
+                    
+                    let conn = false;
+                    if(this.loginForm.value.courriel==='LeMonarch' && this.loginForm.value.mot_passe === '54321'){
+                        sessionStorage.setItem("connecte","admin");
+                        conn = true;
+                        
+                    } else {
+                        sessionStorage.setItem("connecte","true");
+                        conn = a.courriel === this.loginForm.value.courriel && a.mot_passe === this.loginForm.value.mot_passe;
+                    }
+                    return conn;
                 })
-                // .afterClosed().subscribe(()=>{
-                //     this.authServ.setConnexion(this.estConnecte);
-                //     this.onNoClick();
-                // });
-                
-                
-                if (user) {
+              
+                if (sessionStorage.getItem("connecte") === "true") {
                     console.log(user);
                     //changer l'etat de la connexion dans le service
                     this.authServ.setConnexion(!this.estConnecte);
@@ -79,9 +76,13 @@ export class DialogLoginComponent implements OnInit {
                     // console.log(sessionStorage.id_usager);
                     
                     this.authServ.setTitre('Mon cellier');
-                    this.router.navigateByUrl("/usager");
+                    this.route.navigateByUrl("/usager");
 
                     this.onNoClick();
+                    this.invite();
+                } else if (sessionStorage.getItem("connecte") === "admin") {
+                    this.onNoClick();
+                    this.openAdmin();
                 } else {
                     alert("Utilisateur non trouvé")
                 }
@@ -89,6 +90,14 @@ export class DialogLoginComponent implements OnInit {
                 alert("Erreur de traitement")
             })
         }
+    }
+
+    openAdmin(): void {
+        this.dialog.open(DialogAdminComponent, {
+            width: '100%',
+            maxWidth: '370px',
+            maxHeight: '540px'
+        }).afterClosed().subscribe(res=>{});
     }
 
     connect():boolean{
@@ -99,4 +108,18 @@ export class DialogLoginComponent implements OnInit {
         this.dialogRef.close();
     }
 
+   
+    invite(): void {
+        this.dialog.open(DialogInvitationComponent, {
+            width: '100%',
+            maxWidth: '370px',
+            maxHeight: '540px'
+        }).afterClosed().subscribe(res => {
+            this.route.navigateByUrl("/accueil", { skipLocationChange: true }).then(() => {
+                this.route.navigate(['/usager']);
+            });
+        });
+    }
+            
+       
 }

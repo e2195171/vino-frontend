@@ -34,6 +34,7 @@ import { DialogModifUsagerComponent } from './dialog-modif-usager/dialog-modif-u
 import { DialogSupprimCellierComponent } from './dialog-supprim-cellier/dialog-supprim-cellier.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { DialogAdminComponent } from './dialog-admin/dialog-admin.component';
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 import { DialogLoginComponent } from './dialog-login/dialog-login.component';
 import { DialogRegisterComponent } from './dialog-register/dialog-register.component';
@@ -59,6 +60,7 @@ import { MatNativeDateModule } from '@angular/material/core';
         DialogAjoutCellierComponent,
         DialogModifUsagerComponent,
         DialogSupprimCellierComponent,
+        DialogAdminComponent,
         DialogDeleteComponent,
         DialogLoginComponent,
         DialogRegisterComponent,
