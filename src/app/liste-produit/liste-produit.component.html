@@ -14,7 +14,7 @@
             <ng-container matColumnDef="image">
                 <th mat-header-cell *matHeaderCellDef> <span>Image</span>  </th>
                 <td class="image" mat-cell *matCellDef="let bouteille">
-                    <p><img class="bouteille__img" src="https:{{bouteille.image}}" alt="bouteille"></p>
+                    <p><img class="bouteille__img" src="{{bouteille.image}}" alt="bouteille"></p>
                 </td>
             </ng-container>
             <ng-container matColumnDef="nom">
