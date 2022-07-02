@@ -30,8 +30,8 @@ export class DialogModifComponent implements OnInit {
     ngOnInit(): void {
         /** Forme et validation des données saisies */
         this.modifierBouteilleForm = this.formBuilder.group({
-            date_achat: ['', [Validators.pattern(this.dateRegex)]],
-            garde_jusqua: ['', [Validators.pattern(this.dateRegex)]],
+            date_achat: [''],
+            garde_jusqua: [''],
             note: ['', [Validators.pattern(this.nombreEntierRegex)]],
             prix: ['', [Validators.pattern(this.nombreFlottantRegex)]],
             quantite : ['', [Validators.pattern(this.nombreEntierRegex)]],
