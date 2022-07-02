@@ -57,6 +57,16 @@ export class ApibieroService {
         return this.http.get<IUsager>(this.url+'usager/usager/'+id);
     }
 
+    /** ---- Vsevolod --- GET requête pour afficher le type de vin */
+    getListeTypes(): Observable<IListeProduit>{
+        return this.http.get<IListeProduit>(this.url+'bouteille/type');
+    }
+
+    /** ---- Vsevolod --- GET requête pour afficher le pays de vin */
+    getListePays(): Observable<IListeProduit>{
+        return this.http.get<IListeProduit>(this.url+'bouteille/pays');
+    }
+
     /** POST requête pour modifier les informations dans profil */
     modifierUsager(data: IUsager): Observable<any>{
        
@@ -94,7 +104,7 @@ export class ApibieroService {
         return this.http.post<IProduit>(this.url+'cellier/cellier/'+data.id_cellier+'/'+data.id_bouteille+'/'+data.id_achats+'/modif', data, httpOption);
     }
 
-    /** ---- Louis-Etienne, Vsevolod ---- DELETE requête pour supprimer la bouteille dans le cellier */
+    /** ---- Vsevolod ---- DELETE requête pour supprimer la bouteille dans le cellier */
     effacerBouteille(id_bouteille:string, id_cellier:string, id_achats:string):Observable<any>{
         return this.http.delete<IProduit>(this.url+'cellier/cellier/'+id_cellier+'/'+id_bouteille+'/'+id_achats+'/suppression');
     }
@@ -115,6 +125,18 @@ export class ApibieroService {
         };
                 
         return this.http.put<IProduit>(this.url+'cellier/cellier/'+data.id_cellier+'/ajout', data, httpOption);
+    }
+
+    /** ---- Vsevolod --- PUT requête pour ajouter la bouteille dans le vino__bouteille */
+    ajouterBouteilleNonListees(data:IProduit):Observable<any>{
+        console.log(data)
+        let httpOption = {
+          headers : new HttpHeaders({
+            'Content-type' : 'application/json',
+            'Authorization' : 'Basic '+ btoa("biero:biero")
+          })
+        };
+        return this.http.put<IProduit>(this.url+'bouteille', data, httpOption);
     }
     
     /** ---- DMITRIY --- PUT requête pour ajouter le cellier */

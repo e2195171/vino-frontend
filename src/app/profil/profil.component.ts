@@ -13,6 +13,7 @@ import { DialogAjoutCellierComponent } from '../dialog-ajout-cellier/dialog-ajou
 import { DialogModifUsagerComponent } from '../dialog-modif-usager/dialog-modif-usager.component';
 import { DialogModifMotPasseComponent } from '../dialog-modif-mot-passe/dialog-modif-mot-passe.component';
 import { DialogSupprimCellierComponent } from '../dialog-supprim-cellier/dialog-supprim-cellier.component';
+import { DialogAjoutBouteilleNonListeesComponent } from '../dialog-ajout-bouteille-non-listees/dialog-ajout-bouteille-non-listees.component';
 import { IProduit } from '../iproduit';
 import { ICellier } from './../icellier';
 import { IListeUsager } from './../iliste-usager';
@@ -28,6 +29,7 @@ import { DataService } from '../Data/data.service';
 export class ProfilComponent implements OnInit {
     usager !: IUsager;
     cellier !: ICellier;
+    bouteille !: IProduit;
     //cellierData: string;
 
     displayedColumnsCellier: string[] = ["nom", "adresse", "action"];
@@ -129,6 +131,19 @@ export class ProfilComponent implements OnInit {
             maxWidth: '370px',
             maxHeight: '540px',
             data: this.cellier
+        }).afterClosed().subscribe(res=>{
+            this.getMesCelliers();
+        });
+    }
+
+    /** Bouton Ajouter une bouteille non listées */
+    openDialogBouteilleNonListees(): void {
+        this.getMesCelliers();
+        this.dialog.open(DialogAjoutBouteilleNonListeesComponent, {
+            width: '100%',
+            maxWidth: '370px',
+            maxHeight: '800px',
+            data: this.bouteille
         }).afterClosed().subscribe(res=>{
             this.getMesCelliers();
         });

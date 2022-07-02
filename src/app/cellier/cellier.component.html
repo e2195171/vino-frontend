@@ -19,7 +19,7 @@
             <ng-container matColumnDef="image">
                 <th mat-header-cell *matHeaderCellDef> <span>Image</span>  </th>
                 <td class="image" mat-cell *matCellDef="let bouteille">
-                    <p><img class="bouteille__img" src="https:{{bouteille.image}}" alt="bouteille"></p>
+                    <p><img class="bouteille__img" src="{{bouteille.image}}" alt="bouteille"></p>
                 </td>
             </ng-container>
             <ng-container matColumnDef="nom">
@@ -45,7 +45,7 @@
             <ng-container matColumnDef="voir">
                 <th class="centre" mat-header-cell *matHeaderCellDef>Voir</th>
                 <td class="centre" mat-cell *matCellDef="let bouteille"> 
-                    <a class="liste__btn-saq" href="{{bouteille.url_saq}}" mat-raised-button color="accent">Voir SAQ</a>
+                    <a class="liste__btn-saq" href="{{bouteille.url_saq}}" mat-raised-button color="accent" target="_blank">Voir SAQ</a>
                 </td>
             </ng-container>
             <!--Boutons d'action-->
