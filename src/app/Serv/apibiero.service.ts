@@ -43,7 +43,7 @@ export class ApibieroService {
     }
 
     /** ---- DMITRIY --- GET requête pour afficher les bouteilles du cellier */
-    getCellierParIdEtUsager(id_cellier: any, id_usager: any): Observable<IListeProduit>{
+    getBouteillesDansCellierParIdEtUsager(id_cellier: any, id_usager: any): Observable<IListeProduit>{
         return this.http.get<IListeProduit>(this.url+'cellier/cellier/'+id_cellier+'/'+id_usager);
     }
 
@@ -183,6 +183,11 @@ export class ApibieroService {
     /** GET requête pour afficher la bouteille */
     getBouteille(id:number|string):Observable<IProduit>{
         return this.http.get<IProduit>(this.url+'bouteille/'+id);
+    }
+
+    /**---- DMITRIY --- GET requête pour afficher le cellier */
+    getCeCellier(id:number|string):Observable<any>{
+        return this.http.get<any>(this.url+'cellier/cellier/'+id);
     }
 
 }

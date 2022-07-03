@@ -23,6 +23,8 @@
         padding: 3px 16px;
         height: auto;
         width: auto;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: lighter;
     }
     .material-icons {
         padding-bottom: 3px;
@@ -53,7 +55,10 @@
         vertical-align: middle;
         line-height: 60%;
     }
-
+    section{
+        margin:80px 4vw 4vw 4vw !important;
+        padding-bottom: 100px;
+    }
     .mat-table caption {
         font-size: 1em;
     }
@@ -91,13 +96,14 @@
 
     .mat-table .mat-cell:first-child {
         margin-top: 10px;
+        
     }
 
     .bouteille__image{
         width: 50vw;
     }
     td.mat-cell:first-of-type {
-        padding-left: 0;
+        padding-left: 0 !important;
     }
 
     td p {
@@ -110,7 +116,7 @@
         padding: 0;
     }
     .mat-raised-button {
-        margin: 0 20px 20px 0;
+        margin: 0;
     }
     .mat-card-actions {
         margin-left: 0 ;
@@ -124,15 +130,17 @@
         padding: 0 6px;
         line-height: 24px;
     }
-
+    .mat-elevation-z8 {
+        box-shadow: none;
+    }
 }
 @media screen and (max-width: 510px) {
     th.mat-header-cell:first-of-type {
         padding-left: 10px ;
     }
     td.mat-cell:first-of-type {
-        padding-left: 0;
-        text-align: center;
+        padding-left: 24px;
+        text-align: left;
     }
     th.mat-header-cell:last-of-type {
         padding-right: 0;
@@ -154,7 +162,7 @@
     }
     th.mat-header-cell, .mat-sort-header-container {
         text-align: center;
-        
+        padding-left: 24px !important;
     }
     td.mat-cell:last-of-type {
         padding: 5px;
@@ -200,6 +208,9 @@
         padding: 0 6px;
         line-height: 16px;
     }
+    .mat-elevation-z8 {
+        box-shadow: none;
+    }
 }
 @media screen and (max-width: 560px) {
     .mat-form-field {
@@ -216,6 +227,11 @@
     }
     th.mat-header-cell, .mat-sort-header-container {
         text-align: center;
+        padding-left: 24px !important;
+    }
+    td.mat-cell:first-of-type {
+        padding-left: 24px;
+        text-align: left;
     }
     td.mat-cell {
         text-align: left;
@@ -257,6 +273,13 @@
         padding: 0 6px;
         line-height: 24px;
     }
+    section{
+        margin:80px 4vw 4vw 4vw !important;
+        padding-bottom: 100px;
+    }
+    .mat-elevation-z8 {
+        box-shadow: none;
+    }
 }
 @media screen and (max-width: 640px) {
     .bouteille__img {
@@ -267,7 +290,11 @@
     }
     th.mat-header-cell, .mat-sort-header-container {
         text-align: center;
-        
+        padding-left: 24px !important;
+    }
+    td.mat-cell:first-of-type {
+        padding-left: 24px;
+        text-align: left;
     }
     td.mat-cell {
         text-align: left;
@@ -291,6 +318,9 @@
         min-width: 30px;
         padding: 0 6px;
         line-height: 24px;
+    }
+    .mat-elevation-z8 {
+        box-shadow: none;
     }
 }
 @media screen and (max-width: 780px) {
@@ -327,6 +357,9 @@
         padding: 0 6px;
         line-height: 24px;
     }
+    .mat-elevation-z8 {
+        box-shadow: none;
+    }
 }
 @media screen and (max-width: 940px) {
     .bouteille__img {
@@ -351,12 +384,35 @@
         line-height: 0.5;
         font-size: 19px;
     }
-
+    section{
+        margin:130px 4vw 4vw 4vw;
+        padding-bottom: 100px;
+    }
     button+button {
         margin-top: 5px;
     }
+    .mat-elevation-z8 {
+        box-shadow: none;
+    }
 }
-
+@media screen and (max-width: 2500px) {
+    section{
+        margin:130px 4vw 4vw 4vw;
+        padding-bottom: 100px;
+    }
+    .mat-mini-fab {
+        width: 30px;
+        height: 30px;
+    }
+    .material-icons {
+        padding-top: 3px;
+        line-height: 0.5;
+        font-size: 19px;
+    }
+    .mat-elevation-z8 {
+        box-shadow: none;
+    }
+}
 .liste__btn{
     background-color: #4F3E3E;
     color: white;
@@ -372,17 +428,10 @@
 .liste__btn-saq-creer{
     background-color: #4F3E3E;
     color:white;
-    font-weight: bold;
-    margin-top: 20px;
 }
 
 .mat-dialog-container {
     width: 20%;
-}
-
-section{
-    margin: 70px 4vw 4vw 4vw;
-    padding-bottom: 100px;
 }
 
 table {

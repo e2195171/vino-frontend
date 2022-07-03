@@ -53,7 +53,8 @@ export class ProfilComponent implements OnInit {
 
         this.getMesCelliers();
         this.getMonProfil();
-        this.authServ.setTitre("Mes celliers");
+        this.authServ.setTitre("Vino");
+        this.authServ.setConnexion(true);
     }
 
     //newCellierData(idCellier: string) {
@@ -62,13 +63,17 @@ export class ProfilComponent implements OnInit {
 
     /** Liste des celliers d'usager */
     getMesCelliers() {
-        const id_usager = sessionStorage.id_usager;
+        const id_usager = sessionStorage.getItem("id_usager");
+        console.log(id_usager);
+        
         this.bieroServ.getCelliers(id_usager)
         .subscribe({
             next:(res)=>{
                 this.dataSourceCellier = new MatTableDataSource(res.data);
                 this.dataSourceCellier.paginator = this.paginator;
                 this.dataSourceCellier.sort = this.sort;
+                console.log(this.dataSourceCellier.sort);
+                
             },
             error:(err)=>{
                 alert("erreur")

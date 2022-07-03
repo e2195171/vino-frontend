@@ -21,7 +21,7 @@ export class ListeProduitComponent implements OnInit {
 
     estEditable:boolean= false;
     
-    displayedColumns: string[] = ["image", "nom", "cellier_nom", "quantite", "pays", "type", "millesime", "voir", "action" ];
+    displayedColumns: string[] = ["image", "nom", "cellier_nom", "quantite", "pays", "type", "millesime", "voir"];
     dataSource !: MatTableDataSource<IProduit>;
 
     @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -34,7 +34,7 @@ export class ListeProduitComponent implements OnInit {
     ngOnInit(): void {
         this.getAllBouteillesUsager();
 
-        this.authServ.setTitre("Mon cellier");
+        this.authServ.setTitre("Vino");
         this.authServ.setConnexion(true);
     }
 
@@ -108,29 +108,29 @@ export class ListeProduitComponent implements OnInit {
     /** Bouton Augmenter le nombre de bouteilles */
     ajouterQuantiteBouteilleCellier(data:IProduit){
         this.bieroServ.getBouteillesCellierQuantiteAjoutee(data).subscribe({
-        next:(res)=>{
-            this.dataSource = new MatTableDataSource(res.data);
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-        },
-        error:(err)=>{
-            alert("erreur")
-        }
-    })
+            next:(res)=>{
+                this.dataSource = new MatTableDataSource(res.data);
+                this.dataSource.paginator = this.paginator;
+                this.dataSource.sort = this.sort;
+                console.log(data);
+                
+            }
+        })
+        this.getAllBouteillesUsager();
     }
 
     /** Bouton Réduire le nombre de bouteilles */
     boireQuantiteBouteilleCellier(data:IProduit){
         this.bieroServ.deleteBouteillesCellierQuantiteAjoutee(data).subscribe({
-        next:(res)=>{
-            this.dataSource = new MatTableDataSource(res.data);
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-        },
-        error:(err)=>{
-            alert("erreur")
-        }
-    })
+            next: (res) => {
+                this.dataSource = new MatTableDataSource(res.data);
+                this.dataSource.paginator = this.paginator;
+                this.dataSource.sort = this.sort;
+                
+            }
+            
+        });
+        this.getAllBouteillesUsager();
     }
 
 }

@@ -79,7 +79,7 @@ export class DialogLoginComponent implements OnInit {
                     this.route.navigateByUrl("/usager");
 
                     this.onNoClick();
-                    //this.invite();
+                    
                 } else if (sessionStorage.getItem("connecte") === "admin") {
                     this.onNoClick();
                     this.openAdmin();
@@ -108,18 +108,5 @@ export class DialogLoginComponent implements OnInit {
         this.dialogRef.close();
     }
 
-   
-    // invite(): void {
-    //     this.dialog.open(DialogInvitationComponent, {
-    //         width: '100%',
-    //         maxWidth: '370px',
-    //         maxHeight: '540px'
-    //     }).afterClosed().subscribe(res => {
-    //         this.route.navigateByUrl("/accueil", { skipLocationChange: true }).then(() => {
-    //             this.route.navigate(['/usager']);
-    //         });
-    //     });
-    // }
-            
-       
+  
 }

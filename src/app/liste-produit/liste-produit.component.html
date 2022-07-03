@@ -2,9 +2,11 @@
     <!--Bouton Voir mes celliers-->
     <div class="create-btn">
         <a class="liste__btn-saq-creer fill" mat-raised-button routerLink="/usager">Voir mes celliers</a>
-    </div>
-    <mat-form-field appearance="standard">
+    </div>    
+    <!--Titre-->
+    <h3>Toutes mes bouteilles</h3>
     <!--Filtre-->
+    <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Tapez le mot de recherche" #input>
     </mat-form-field>
@@ -23,7 +25,7 @@
             </ng-container>
             <ng-container matColumnDef="cellier_nom">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header="cellier_nom" > Cellier </th>
-                <td mat-cell class="left" *matCellDef="let bouteille"> {{bouteille.cellier_nom}} </td>
+                <td mat-cell class="left" *matCellDef="let bouteille"><a routerLink="/cellier/{{bouteille.cellier_id_cellier}}"> {{bouteille.cellier_nom}}</a></td>
             </ng-container>
             <ng-container matColumnDef="quantite">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header="quantite"> Quantité </th>
@@ -47,24 +49,7 @@
                     <a class="liste__btn-saq" href="{{bouteille.url_saq}}" mat-raised-button color="accent">Voir SAQ</a>
                 </td>
             </ng-container>
-            <!--Boutons d'action-->
-            <ng-container matColumnDef="action">
-                <th class="centre" mat-header-cell *matHeaderCellDef>Action</th>
-                <td class="centre buttons" mat-cell *matCellDef="let bouteille"> 
-                    <button class="liste__btn"  (click)="ajouterQuantiteBouteilleCellier(bouteille)" mat-mini-fab aria-label="Example icon button with a home icon">
-                        <mat-icon>add</mat-icon>
-                    </button>
-                    <button class="liste__btn"  (click)="boireQuantiteBouteilleCellier(bouteille)" mat-mini-fab aria-label="Example icon button with a home icon">
-                    <mat-icon>remove</mat-icon>
-                    </button>
-                    <button class="liste__btn"  (click)="editDialog(bouteille)" mat-mini-fab aria-label="Example icon button with a home icon">
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                    <button class="liste__btn" (click)="deleteDialog(bouteille)" mat-mini-fab aria-label="Example icon button with a home icon">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                </td>
-            </ng-container>
+              
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             <!--Ligne affichée lorsqu'il n'y a pas de données correspondantes-->
