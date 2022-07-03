@@ -22,3 +22,44 @@ input.ng-valid, textarea.ng-valid{
     
     margin-left: 1vw;
 }
+
+@media screen and (max-width: 485px) {
+
+    .mat-option {
+        font-size: 80%;
+        max-width: 80%;
+    }
+    .mat-typography h2 {
+        font-size: 80%;
+    }
+    .mat-select-panel-wrap {
+        max-width: 70%;
+        
+    }
+    .cdk-overlay-pane {
+        left:150px;
+        width: 70%;
+        padding-left: 50px;
+    }
+    .ng-tns-c139-10 {
+        min-width: none !important;
+    }
+    .mat-select-panel {
+        font-size: 80%;
+        margin-left: 20px;
+        margin-right: 100px;
+    }
+
+
+}
+@media screen and (max-width: 510px) {
+}
+    
+@media screen and (max-width: 560px) {
+}
+@media screen and (max-width: 640px) {
+}
+@media screen and (max-width: 780px) {
+}
+@media screen and (max-width: 940px) {
+}

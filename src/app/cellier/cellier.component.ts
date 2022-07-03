@@ -27,6 +27,8 @@ export class CellierComponent implements OnInit {
     bouteille !: IProduit;
     cellierData!: string;
     id!: string;
+    cellierNom: string;
+    
 
     estEditable:boolean= false;
     
@@ -58,8 +60,9 @@ export class CellierComponent implements OnInit {
         );
         this.cellierData = this.id;
         this.newCellierData(this.cellierData);
+        this.getBouteillesDansCeCellier();
         this.getCeCellier();
-        this.authServ.setTitre("Mon cellier");
+        this.authServ.setTitre("Vino");
     }
 
 
@@ -67,11 +70,26 @@ export class CellierComponent implements OnInit {
         this.data.changeCellier(cellierData);
     }
 
-
     /** Liste des bouteilles du cellier */
     getCeCellier() {
+        
+        this.bieroServ.getCeCellier(this.cellierData)
+        .subscribe({
+            next:(res)=>{
+                const cellier = res;
+                console.log(cellier[0].nom);
+                this.cellierNom = cellier[0].nom
+            },
+            error:(err)=>{
+                alert("erreur")
+            }
+        })
+    }
+
+    /** Liste des bouteilles du cellier */
+    getBouteillesDansCeCellier() {
         const id_usager = sessionStorage.getItem("id_usager");
-        this.bieroServ.getCellierParIdEtUsager(this.cellierData, id_usager)
+        this.bieroServ.getBouteillesDansCellierParIdEtUsager(this.cellierData, id_usager)
         .subscribe({
             next:(res)=>{
                 this.dataSource = new MatTableDataSource(res.data);
@@ -99,24 +117,24 @@ export class CellierComponent implements OnInit {
         const dialogRef = this.dialog.open(DialogModifComponent, {
             width: '100%',
             maxWidth: '370px',
-            maxHeight: '540px',
+            //maxHeight: '540px',
             data:bouteille
         }).afterClosed().subscribe(res=>{
-            this.getCeCellier();
+            this.getBouteillesDansCeCellier();
         });
         
     }
 
     /** Bouton Ajouter une bouteille */
     openDialog(): void {
-        this.getCeCellier();
+        this.getBouteillesDansCeCellier();
         this.dialog.open(DialogAjoutBouteilleComponent, {
             width: '100%',
             maxWidth: '370px',
             maxHeight: '540px',
             data: this.bouteille
         }).afterClosed().subscribe(res=>{
-            this.getCeCellier();
+            this.getBouteillesDansCeCellier();
         });
     }
 
@@ -128,7 +146,7 @@ export class CellierComponent implements OnInit {
             maxHeight: '540px',
             data:bouteille
         }).afterClosed().subscribe(res=>{
-            this.getCeCellier(); //ici
+            this.getBouteillesDansCeCellier(); //ici
         });
     }
 
@@ -143,7 +161,7 @@ export class CellierComponent implements OnInit {
             this.dataSource.sort = this.sort;
         }
     })
-    this.getCeCellier();
+    this.getBouteillesDansCeCellier();
     }
 
     /** Bouton Réduire le nombre de bouteilles */
@@ -155,7 +173,7 @@ export class CellierComponent implements OnInit {
             this.dataSource.sort = this.sort;
         }
     })
-    this.getCeCellier();
+    this.getBouteillesDansCeCellier();
     }
 
     

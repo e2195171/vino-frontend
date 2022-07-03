@@ -20,13 +20,15 @@ mat-toolbar{
     justify-content: space-between;
     background-color: #810234;
     padding: 2.1vw;
-    padding-left: 3vw;
-    padding-right: 3vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
     background-image: url("~src/assets/img/header_bg.jpeg");
-   background-position: left;
-   background-size: cover;
+    background-position: left;
+    background-size: cover;
 }
-
+.mat-toolbar-single-row {
+    height: 9vh;
+}
 .logo{
     display: flex;
     flex-direction: row;
@@ -48,12 +50,12 @@ mat-toolbar{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
 }
 
 .header__title{
-    color: rgb(233, 236, 205);
+    color: #FFFF;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -68,7 +70,7 @@ mat-toolbar{
 }
 
 .auth{
-    display: none;
+    //display: none;
 }
 
 /*.img{

@@ -1,5 +1,6 @@
 
 <section>
+
     <!--Bouton Ajouter-->
     <div class="create-btn">
         <a class="liste__btn-saq-creer fill" mat-raised-button (click)="openDialog()">Ajouter une bouteille</a>
@@ -7,11 +8,13 @@
     <!--Bouton Voir mes celliers-->
     <div class="create-btn">
         <a class="liste__btn-saq-creer fill" mat-raised-button routerLink="/usager" >Voir mes celliers</a>
-    </div>
-    <mat-form-field appearance="standard">
+    </div>   
+     <!--Nom du cellier-->
+    <h3>Cellier : "{{cellierNom}}"</h3>
     <!--Filtre-->
+    <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Tapez le mot de recherche" #input>
     </mat-form-field>
     <!--Liste des bouteilles-->
     <div>

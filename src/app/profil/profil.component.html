@@ -1,8 +1,8 @@
 <section>
     <mat-tab-group>
         <!--Tab Celliers-->
-        <mat-tab label="Mes celliers">
-            <!--Boutons Ajouter-->
+        <mat-tab label="Celliers">
+            <!--Bouton Ajouter-->
             <div class="create-btn">
                 <a class="liste__btn-saq-creer fill" mat-raised-button (click)="createDialogCellier()">Ajouter un cellier</a>
             </div>
@@ -12,7 +12,7 @@
             <!--Filtre-->
             <mat-form-field appearance="standard">
                 <mat-label>Filter</mat-label>
-                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Tapez le mot de recherche" #input>
             </mat-form-field>
 
             <!--Liste des celliers-->
@@ -21,7 +21,6 @@
                     <ng-container matColumnDef="nom">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header="nom" > Nom </th>
                         <td mat-cell *matCellDef="let cellier"><a routerLink="/cellier/{{cellier.cellier_id_cellier}}"> {{cellier.nom}}</a> </td>
-                        <!--<td mat-cell *matCellDef="let cellier"><a routerLink="/cellier/{{cellier.cellier_id_cellier}}" (click)="newCellierData(cellier.cellier_id_cellier)"> {{cellier.nom}}</a> </td>-->
                     </ng-container>
                     <ng-container matColumnDef="adresse">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header="adresse"> Adresse </th>
@@ -55,7 +54,7 @@
             </div>
         </mat-tab>
         <!--Liste d'information personnelle'-->
-        <mat-tab label="Mes informations">
+        <mat-tab label="Mon profil">
             <ng-container >
             <mat-card class="card" >
                 <mat-card-header>
