@@ -42,7 +42,7 @@ export class EnteteComponent implements OnInit {
     openLogin(): void {
         sessionStorage['estConnecte'] = false;
         this.dialog.open(DialogLoginComponent, {
-            width: '30%',
+            width: '280px',
             data: this.loggedUser
         }).afterClosed().subscribe(res => {
             

@@ -40,30 +40,30 @@ export class AccueilComponent implements OnInit {
     }
 
     /** Connexion */
-    openLogin(): void {
-        sessionStorage['estConnecte'] = false;
-        this.dialog.open(DialogLoginComponent, {
-            width: '90%',
-            maxWidth: '300px',
-            data: this.loggedUser
-        }).afterClosed().subscribe(() => {
+    // openLogin(): void {
+    //     sessionStorage['estConnecte'] = false;
+    //     this.dialog.open(DialogLoginComponent, {
+    //         width: '90%',
+    //         maxWidth: '300px',
+    //         data: this.loggedUser
+    //     }).afterClosed().subscribe(() => {
             
-            if (sessionStorage['estConnecte'] === 'true') {
+    //         if (sessionStorage['estConnecte'] === 'true') {
                 
-                //alert('logged in');
-                // this.getLoggedUser();
-                this.dialog.open(DialogInvitationComponent, {
-                    width: '100%',
-                    maxWidth: '370px',
-                    maxHeight: '540px'
-                }).afterClosed().subscribe(res => {
-                    this.router.navigateByUrl("/accueil", { skipLocationChange: true }).then(() => {
-                        this.router.navigate(['/usager']);
-                    });
-                });
-            }
-        });
-    }
+    //             //alert('logged in');
+    //             // this.getLoggedUser();
+    //             this.dialog.open(DialogInvitationComponent, {
+    //                 width: '100%',
+    //                 maxWidth: '370px',
+    //                 maxHeight: '540px'
+    //             }).afterClosed().subscribe(res => {
+    //                 this.router.navigateByUrl("/accueil", { skipLocationChange: true }).then(() => {
+    //                     this.router.navigate(['/usager']);
+    //                 });
+    //             });
+    //         }
+    //     });
+    // }
 
     /** Enregistrement */
     openRegister(): void {
