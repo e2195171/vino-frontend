@@ -51,7 +51,6 @@ export class DialogAjoutBouteilleComponent implements OnInit {
             id_bouteille: ['', [Validators.required]],
             date_achat: [''],
             garde_jusqua: [''],
-            notes: ['', [Validators.required, Validators.pattern(this.nombreEntierRegex)]],
             prix: ['', [Validators.required, Validators.pattern(this.nombreFlottantRegex)]],
             quantite: ['', [Validators.required, Validators.pattern(this.nombreEntierRegex)]],
             millesime: ['', [Validators.required, Validators.pattern(this.anneeRegex)]]
