@@ -18,6 +18,7 @@ import { IProduit } from '../iproduit';
 import { ICellier } from './../icellier';
 import { IListeUsager } from './../iliste-usager';
 import { DataService } from '../Data/data.service';
+import { DialogImportBouteillesComponent } from '../dialog-import-bouteilles/dialog-import-bouteilles.component';
 
 
 
@@ -180,18 +181,14 @@ export class ProfilComponent implements OnInit {
     }
 
     /** Importer des bouteilles de SAQ */
-    importerDeSaq() {
-        const nombre = 30;
-        const page = 2;
-                
-        this.bieroServ.importerDeSaq(nombre, page)
-        .subscribe({
-            next:(res)=>{
-                //this.bouteillesImporte = res.data[0];
-            },
-            error:(err)=>{
-                alert("erreur")
-            }
-        })
+    importeSaqDialog(): void {
+        this.dialog.open(DialogImportBouteillesComponent, {
+            width: '100%',
+            maxWidth: '370px',
+            maxHeight: '540px'
+        }).afterClosed().subscribe(res => {
+            this.getMesCelliers();
+            //this.getToutesBouteilles();
+        });
     }
 }

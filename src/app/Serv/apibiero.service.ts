@@ -191,9 +191,9 @@ export class ApibieroService {
     }
 
     /** ---- DMITRIY --- PUT requête pour ajouter le cellier */
-    importerDeSaq(nombre: number, page: number): Observable<any>{
-        const data = [nombre, page];
-        console.log(nombre, page);
+    importerDeSaq(data: any): Observable<any>{
+        
+        console.log(data);
         let httpOption = {
             headers : new HttpHeaders({
                 'Content-type' : 'application/json',
