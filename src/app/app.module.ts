@@ -41,6 +41,7 @@ import { DialogRegisterComponent } from './dialog-register/dialog-register.compo
 import { DialogInvitationComponent } from './dialog-invitation/dialog-invitation.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { DialogImportBouteillesComponent } from './dialog-import-bouteilles/dialog-import-bouteilles.component';
 
 @NgModule({
     declarations: [
@@ -64,7 +65,8 @@ import { MatNativeDateModule } from '@angular/material/core';
         DialogDeleteComponent,
         DialogLoginComponent,
         DialogRegisterComponent,
-        DialogInvitationComponent
+        DialogInvitationComponent,
+        DialogImportBouteillesComponent
     ],
     entryComponents:[DialogAjoutBouteilleComponent],
     imports: [

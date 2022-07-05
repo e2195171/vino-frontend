@@ -18,6 +18,7 @@ import { IProduit } from '../iproduit';
 import { ICellier } from './../icellier';
 import { IListeUsager } from './../iliste-usager';
 import { DataService } from '../Data/data.service';
+import { DialogImportBouteillesComponent } from '../dialog-import-bouteilles/dialog-import-bouteilles.component';
 
 
 
@@ -30,7 +31,6 @@ export class ProfilComponent implements OnInit {
     usager !: IUsager;
     cellier !: ICellier;
     bouteille !: IProduit;
-    //cellierData: string;
 
     displayedColumnsCellier: string[] = ["nom", "adresse", "action"];
     dataSourceCellier !: MatTableDataSource<ICellier>;
@@ -178,5 +178,17 @@ export class ProfilComponent implements OnInit {
             this.getMonProfil();
         });
         
+    }
+
+    /** Importer des bouteilles de SAQ */
+    importeSaqDialog(): void {
+        this.dialog.open(DialogImportBouteillesComponent, {
+            width: '100%',
+            maxWidth: '370px',
+            maxHeight: '540px'
+        }).afterClosed().subscribe(res => {
+            this.getMesCelliers();
+            //this.getToutesBouteilles();
+        });
     }
 }
