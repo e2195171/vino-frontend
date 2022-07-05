@@ -30,7 +30,6 @@ export class ProfilComponent implements OnInit {
     usager !: IUsager;
     cellier !: ICellier;
     bouteille !: IProduit;
-    //cellierData: string;
 
     displayedColumnsCellier: string[] = ["nom", "adresse", "action"];
     dataSourceCellier !: MatTableDataSource<ICellier>;
@@ -178,5 +177,21 @@ export class ProfilComponent implements OnInit {
             this.getMonProfil();
         });
         
+    }
+
+    /** Importer des bouteilles de SAQ */
+    importerDeSaq() {
+        const nombre = 30;
+        const page = 2;
+                
+        this.bieroServ.importerDeSaq(nombre, page)
+        .subscribe({
+            next:(res)=>{
+                //this.bouteillesImporte = res.data[0];
+            },
+            error:(err)=>{
+                alert("erreur")
+            }
+        })
     }
 }

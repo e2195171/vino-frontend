@@ -190,4 +190,16 @@ export class ApibieroService {
         return this.http.get<any>(this.url+'cellier/cellier/'+id);
     }
 
+    /** ---- DMITRIY --- PUT requête pour ajouter le cellier */
+    importerDeSaq(nombre: number, page: number): Observable<any>{
+        const data = [nombre, page];
+        console.log(nombre, page);
+        let httpOption = {
+            headers : new HttpHeaders({
+                'Content-type' : 'application/json',
+                'Authorization' : 'Basic '+ btoa("biero:biero")
+            })
+        };
+        return this.http.put<any>(this.url+'saq/update', data, httpOption);
+    }
 }
