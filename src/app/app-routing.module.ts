@@ -10,6 +10,7 @@ import { DetailsProduitComponent } from './details-produit/details-produit.compo
 import { ListeProduitComponent } from './liste-produit/liste-produit.component';
 import { NonTrouveComponent } from './non-trouve/non-trouve.component';
 import { ProfilComponent } from './profil/profil.component';
+import { AdminComponent } from './admin/admin.component';
 import { CellierComponent } from './cellier/cellier.component';
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
     { path: "liste", component: ListeProduitComponent , canActivate:[GardienConnexionGuard] },
     { path: "cellier/:id", component: CellierComponent , canActivate:[GardienConnexionGuard] },
     { path: "usager", component: ProfilComponent , canActivate:[GardienConnexionGuard] },
-    { path : "produit/:id", component:DetailsProduitComponent, canActivate:[GardienConnexionGuard] },
+    { path: "admin", component: AdminComponent , canActivate:[GardienConnexionGuard] },
+    { path: "produit/:id", component: DetailsProduitComponent, canActivate: [GardienConnexionGuard] },
     { path : "", component:DialogAjoutBouteilleComponent, canActivate:[GardienConnexionGuard] },
     { path : "modifier/:id", component:DialogModifComponent, canActivate:[GardienConnexionGuard] },
     {path : "delete/:id", component:DialogDeleteComponent, canActivate:[GardienConnexionGuard]},

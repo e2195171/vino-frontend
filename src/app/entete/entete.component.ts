@@ -46,7 +46,7 @@ export class EnteteComponent implements OnInit {
             data: this.loggedUser
         }).afterClosed().subscribe(res => {
             
-            if (sessionStorage['estConnecte'] === 'true') {
+            if (sessionStorage['estConnecte'] === 'true' && sessionStorage['connecte'] !== 'admin') {
                 
                 // alert('logged in');
                 // this.getLoggedUser();

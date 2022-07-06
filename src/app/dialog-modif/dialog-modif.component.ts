@@ -32,7 +32,6 @@ export class DialogModifComponent implements OnInit {
         this.modifierBouteilleForm = this.formBuilder.group({
             date_achat: [''],
             garde_jusqua: [''],
-            note: ['', [Validators.pattern(this.nombreEntierRegex)]],
             prix: ['', [Validators.pattern(this.nombreFlottantRegex)]],
             quantite : ['', [Validators.pattern(this.nombreEntierRegex)]],
             millesime : ['', [Validators.pattern(this.anneeRegex)]]
@@ -43,7 +42,6 @@ export class DialogModifComponent implements OnInit {
         if(this.editData){
             this.modifierBouteilleForm.controls['date_achat'].setValue(this.editData.date_achat);
             this.modifierBouteilleForm.controls['garde_jusqua'].setValue(this.editData.garde_jusqua);
-            this.modifierBouteilleForm.controls['note'].setValue(this.editData.note);
             this.modifierBouteilleForm.controls['prix'].setValue(this.editData.prix);
             this.modifierBouteilleForm.controls['quantite'].setValue(this.editData.quantite);
             this.modifierBouteilleForm.controls['millesime'].setValue(this.editData.millesime);

@@ -47,7 +47,7 @@ export class DialogLoginComponent implements OnInit {
         })
     }
 
-    /** Fonction pour ajouter une bouteille au cellier */
+    /** Login */
     login():void{
         if (this.loginForm.valid) {
    
@@ -81,8 +81,14 @@ export class DialogLoginComponent implements OnInit {
                     this.onNoClick();
                     
                 } else if (sessionStorage.getItem("connecte") === "admin") {
-                    this.onNoClick();
-                    this.openAdmin();
+                   //changer l'etat de la connexion dans le service
+                   this.authServ.setConnexion(!this.estConnecte);
+                   this.loginForm.reset();
+                   sessionStorage.setItem("id_usager", user.id);
+                   this.authServ.setTitre('Admin');
+                   this.route.navigateByUrl("/admin");
+                   this.onNoClick();
+                   // this.openAdmin();
                 } else {
                     alert("Utilisateur non trouvé")
                 }

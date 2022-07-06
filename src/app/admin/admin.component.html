@@ -1,0 +1,118 @@
+<section>
+    <mat-tab-group>
+        <!--Tab Bouteilles-->
+        <mat-tab label="Bouteilles">
+            <!--SAQ-->
+            <p class="saq"><a href="https://www.saq.com/fr/produits/vin">Voir SAQ</a></p>
+            <!--Import de SAQ-->
+            <a class="liste__btn-saq-creer fill" mat-raised-button (click)="importeSaqDialog()">Importer des bouteilles de SAQ</a>
+            <!--Filtre-->
+            <mat-form-field appearance="standard">
+                <mat-label>Recherche</mat-label>
+                <input matInput (keyup)="applyFilterBouteille($event)" placeholder="Chercher par champ" #input>
+            </mat-form-field>
+            <!--Liste des Bouteilles-->
+            <div class="mat-elevation-z8">
+                <table class="table" mat-table [dataSource]="dataSourceBouteille" matSort>
+                    <ng-container matColumnDef="image">
+                        <th mat-header-cell *matHeaderCellDef> <span>Image</span>  </th>
+                        <td class="image" mat-cell *matCellDef="let bouteille">
+                            <p><img class="bouteille__img" src="{{bouteille.image}}" alt="bouteille"></p>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="nom">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header="nom" > Nom </th>
+                        <td mat-cell class="left" *matCellDef="let bouteille"> {{bouteille.nom}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="pays">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header="pays"> Pays </th>
+                        <td mat-cell *matCellDef="let bouteille"> {{bouteille.pays}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="type">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header="type"> Type </th>
+                        <td mat-cell *matCellDef="let bouteille"> {{bouteille.type}} </td>
+                    </ng-container>
+                   
+                    Boutons d'action-->
+                    <ng-container matColumnDef="action">
+                        <th class="centre" mat-header-cell *matHeaderCellDef>Action</th>
+                        <td class="centre buttons" mat-cell *matCellDef="let bouteille"> 
+                            <button class="liste__btn" (click)="deleteDialogBouteille(bouteille)" mat-mini-fab aria-label="Example icon button with a home icon">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsBouteille"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsBouteille;"></tr>
+                    <!--Ligne affichée lorsqu'il n'y a pas de données correspondantes-->
+                    <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                </table>
+                <!--Paginateur-->
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+            </div>
+        </mat-tab>
+        <!--Tab Usagers-->
+        <mat-tab label="Usagers">
+            <!--Filtre-->
+            <mat-form-field appearance="standard">
+                <mat-label>Recherche</mat-label>
+                <input matInput (keyup)="applyFilterUsager($event)" placeholder="Recherche par champ" #input>
+            </mat-form-field>
+            <!--Liste des celliers-->
+            <div class="mat-elevation-z8">
+                <table class="table" mat-table [dataSource]="dataSourceUsager" matSort>
+                    <ng-container matColumnDef="image">
+                        <th mat-header-cell *matHeaderCellDef> <span>Image</span>  </th>
+                        <td class="image" mat-cell *matCellDef="let usager">
+                            <p><img class="bouteille__img" src="{{usager.image_url}}" alt="nom"></p>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="nom">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header="nom" > Nom </th>
+                        <td mat-cell class="left" *matCellDef="let usager">{{usager.prenom}} {{usager.nom_usager}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="courriel">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header="courriel"> Courriel </th>
+                        <td mat-cell *matCellDef="let usager"> {{usager.courriel}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="phone">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header="phone"> Téléphone </th>
+                        <td mat-cell *matCellDef="let usager"> {{usager.phone}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="adresse">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header="adresse"> Adresse </th>
+                        <td mat-cell *matCellDef="let usager"> {{usager.adresse}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="ville">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header="ville"> Ville </th>
+                        <td mat-cell *matCellDef="let usager"> {{usager.nom}} </td>
+                    </ng-container>
+                    <!--Bouton modifier profil-->
+                    <ng-container matColumnDef="action">
+                        <th class="centre" mat-header-cell *matHeaderCellDef>Modifier</th>
+                        <td class="centre buttons" mat-cell *matCellDef="let usager"> 
+                            <button class="liste__btn" (click)="editDialogUsager(usager)" mat-mini-fab aria-label="Example icon button with a home icon">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="liste__btn" (click)="editDialogMotPasse(usager)" mat-mini-fab aria-label="Example icon button with a home icon">
+                                <mat-icon>password</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsUsager"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsUsager;"></tr>
+                    <!--Ligne affichée lorsqu'il n'y a pas de données correspondantes-->
+                    <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">Aucun résultat correspond à "{{input.value}}"</td>
+                    </tr>
+
+                </table>
+                <!--Paginateur-->
+                <mat-paginator [pageSizeOptions]="[2, 5, 10, 100]" aria-label="Select page of users"></mat-paginator>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+ 
+</section>
