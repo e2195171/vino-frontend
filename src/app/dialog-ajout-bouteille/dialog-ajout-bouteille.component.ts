@@ -41,9 +41,9 @@ export class DialogAjoutBouteilleComponent implements OnInit {
     ngOnInit(): void {
         this.data.ceCellierData.subscribe(cellierData => this.cellierData = cellierData);
         /** Obtenir une nomenclature des bouteilles importées de la SAQ */
-        this.bieroServ.getListeBouteilles().subscribe((data: any) => { this.bouteilles = data.data; })
-        
-        //this.data.ceCellierData.subscribe(cellierData => this.id_cellier = cellierData);
+        this.bieroServ.getListeBouteilles().subscribe((data: any) => { this.bouteilles = data.data; console.log(this.bouteilles);
+        })
+                
         console.log(this.cellierData);
         
         /** Forme et validation des données saisies */

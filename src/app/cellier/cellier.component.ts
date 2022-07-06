@@ -157,10 +157,13 @@ export class CellierComponent implements OnInit {
         console.log(data);
         
         this.bieroServ.getBouteillesCellierQuantiteAjoutee(data).subscribe({
-        next:(res)=>{
+            next: (res) => {
+                console.log(res.data);
+                
             this.dataSource = new MatTableDataSource(res.data);
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
+            
         }
     })
     this.getBouteillesDansCeCellier();

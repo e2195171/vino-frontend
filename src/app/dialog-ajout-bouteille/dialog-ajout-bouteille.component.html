@@ -5,7 +5,7 @@
         <!--Select de la bouteille-->
         <mat-form-field>
             <mat-select [(value)]="getBouteilleId" formControlName="id_bouteille" required placeholder="Nom de la bouteille">
-              <mat-option *ngFor="let bouteille of bouteilles" [value]="bouteille.id">
+              <mat-option *ngFor="let bouteille of bouteilles" [value]="bouteille.id_bouteille">
                 {{ bouteille.nom }}
               </mat-option>
             </mat-select>
