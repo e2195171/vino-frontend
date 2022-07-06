@@ -100,20 +100,7 @@ export class DialogRegisterComponent implements OnInit {
             } else {
                 alert('mot de passe ne correspond pas')
             }
-            
-            // if(this.registerForm.value.mot_passe == this.registerForm.value.confirmpassword){
-            //     this.http.put<any>("http://127.0.0.1:8000/webservice/php/usager/register/",this.registerForm.value).subscribe(res=>{
-            //         // alert("Inscrit!");
-            //         this.registerForm.reset();
-            //         this.onNoClick();
-            //         this.openLogin();
-            //     },err=>{
-            //         alert("erreur");
-            //     })
-            // } else {
-            //     alert('mot de passe ne correspond pas')
-            // }
-            
+         
 
         }
     }
