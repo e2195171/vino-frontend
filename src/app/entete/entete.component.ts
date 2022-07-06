@@ -85,6 +85,10 @@ export class EnteteComponent implements OnInit {
         return this.authServ.getConnexion();
     }
 
+    usagerOrAdmin():string{
+        return sessionStorage['connecte'] === 'admin' ? 'admin': 'usager';
+    }
+
 
     // getLoggedUser(): any{
     //     let user:IUser;

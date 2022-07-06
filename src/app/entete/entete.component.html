@@ -20,7 +20,7 @@
             </div>
         </ng-container>
         <ng-container *ngIf="connect()">
-            <button mat-mini-fab class="liste__btn" routerLink="usager" aria-label="Example icon button with a home icon">
+            <button mat-mini-fab class="liste__btn" [routerLink]="usagerOrAdmin()" aria-label="Example icon button with a home icon">
                 <mat-icon>person</mat-icon>
             </button>
             <button mat-mini-fab class="liste__btn" routerLink="accueil" (click)="logout()" [(ngModel)]="estConnecte" aria-label="Example icon button with a home icon">
