@@ -60,13 +60,13 @@
                 <mat-label>Recherche</mat-label>
                 <input matInput (keyup)="applyFilterUsager($event)" placeholder="Recherche par champ" #input>
             </mat-form-field>
-            <!--Liste des celliers-->
+            <!--Liste des usagers-->
             <div class="mat-elevation-z8">
                 <table class="table" mat-table [dataSource]="dataSourceUsager" matSort>
                     <ng-container matColumnDef="image">
                         <th mat-header-cell *matHeaderCellDef> <span>Image</span>  </th>
                         <td class="image" mat-cell *matCellDef="let usager">
-                            <p><img class="bouteille__img" src="{{usager.image_url}}" alt="nom"></p>
+                            <p><img class="usager__img" src="{{usager.image_url}}" alt="nom"></p>
                         </td>
                     </ng-container>
                     <ng-container matColumnDef="nom">
