@@ -50,7 +50,8 @@
                     </tr>
                 </table>
                 <!--Paginateur-->
-                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+                <mat-paginator #paginatorBouteille [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+            
             </div>
         </mat-tab>
         <!--Tab Usagers-->
@@ -60,13 +61,13 @@
                 <mat-label>Recherche</mat-label>
                 <input matInput (keyup)="applyFilterUsager($event)" placeholder="Recherche par champ" #input>
             </mat-form-field>
-            <!--Liste des celliers-->
+            <!--Liste des usagers-->
             <div class="mat-elevation-z8">
                 <table class="table" mat-table [dataSource]="dataSourceUsager" matSort>
                     <ng-container matColumnDef="image">
                         <th mat-header-cell *matHeaderCellDef> <span>Image</span>  </th>
                         <td class="image" mat-cell *matCellDef="let usager">
-                            <p><img class="bouteille__img" src="{{usager.image_url}}" alt="nom"></p>
+                            <p><img class="usager__img" src="{{usager.image_url}}" alt="nom"></p>
                         </td>
                     </ng-container>
                     <ng-container matColumnDef="nom">
@@ -110,7 +111,8 @@
 
                 </table>
                 <!--Paginateur-->
-                <mat-paginator [pageSizeOptions]="[2, 5, 10, 100]" aria-label="Select page of users"></mat-paginator>
+                <mat-paginator #paginatorUsager [pageSizeOptions]="[2, 5, 10, 100]" aria-label="Select page of users"></mat-paginator>
+            
             </div>
         </mat-tab>
     </mat-tab-group>

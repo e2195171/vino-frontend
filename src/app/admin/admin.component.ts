@@ -40,8 +40,9 @@ export class AdminComponent implements OnInit {
     
     displayedColumnsUsager: string[] = ["image","nom", "courriel", "phone", "adresse", "ville", "action"];
     dataSourceUsager !: MatTableDataSource<IUsager>;//Creer IUser
-    
-    @ViewChild(MatPaginator) paginator !: MatPaginator;
+      
+    @ViewChild('paginatorBouteille', { read: MatPaginator }) paginatorBouteille!: MatPaginator;
+    @ViewChild('paginatorUsager', { read: MatPaginator }) paginatorUsager!: MatPaginator;
     @ViewChild(MatSort) sort !: MatSort;
 
     constructor(
@@ -67,7 +68,7 @@ export class AdminComponent implements OnInit {
             next:(res)=>{
                 console.log(res.data)
                 this.dataSourceBouteille = new MatTableDataSource(res.data);
-                this.dataSourceBouteille.paginator = this.paginator;
+                this.dataSourceBouteille.paginator = this.paginatorBouteille;
                 this.dataSourceBouteille.sort = this.sort;
                 // console.log(this.dataSourceBouteille.sort);
             },
@@ -84,7 +85,7 @@ export class AdminComponent implements OnInit {
             next:(res)=>{
                 console.log(res.data)
                 this.dataSourceUsager = new MatTableDataSource(res.data);
-                this.dataSourceUsager.paginator = this.paginator;
+                this.dataSourceUsager.paginator = this.paginatorUsager;
                 this.dataSourceUsager.sort = this.sort;
             },
             error:(err)=>{
