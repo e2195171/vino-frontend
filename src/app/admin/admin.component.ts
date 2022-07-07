@@ -80,7 +80,7 @@ export class AdminComponent implements OnInit {
 
     /** Liste d'information d'usager */
     getUsagers() {
-        this.bieroServ.getUsagers()
+        this.bieroServ.getToutUsagers()
         .subscribe({
             next:(res)=>{
                 console.log(res.data)
@@ -131,7 +131,7 @@ export class AdminComponent implements OnInit {
         const dialogRef = this.dialog.open(DialogModifUsagerComponent, {
             width: '100%',
             maxWidth: '370px',
-            maxHeight: '540px',
+            //maxHeight: '540px',
             data:usager
         }).afterClosed().subscribe(res=>{
             this.getUsagers();

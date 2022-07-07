@@ -42,6 +42,11 @@ export class ApibieroService {
         return this.http.get<IUsager>(this.url+'usager/login');
     }
 
+    /** GET requête pour se connecter*/
+    getToutUsagers(): Observable<IListeUsager>{
+        return this.http.get<IUsager>(this.url+'usager/usager');
+    }
+
     /** GET requête pour afficher les bouteilles d'usager */
     getAllBouteillesUsager(id_usager: any): Observable<IListeProduit>{
         return this.http.get<IListeProduit>(this.url+'usager/bouteilles/'+id_usager);
@@ -96,7 +101,7 @@ export class ApibieroService {
         return this.http.post<ICellier>(this.url+'cellier/cellier/'+data.cellier_id_cellier+'/modif', data, httpOption);
     }
 
-    /** ---- Vsevolod ---- POST requête pour modifier la bouteille dans le cellier */
+    /** ---- Vsevolod, Bita ---- POST requête pour modifier la bouteille dans le cellier */
     modifierBouteille(data: IProduit): Observable<any>{
         console.log(data);
         

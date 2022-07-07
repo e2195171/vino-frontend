@@ -45,15 +45,18 @@ export class DialogLoginComponent implements OnInit {
         this.authServ.getTitre().subscribe(leTitre =>{
             this.sTitre = leTitre;
         })
+        
+        
     }
 
     /** Login */
     login():void{
         if (this.loginForm.valid) {
-   
+            console.log(this.loginForm.value);
             this.http.get<any>("http://127.0.0.1:8000/webservice/php/usager/login/").subscribe(res=>{
                 console.log(res.data)
                 const user = res.data.find((a:any)=>{
+                    
                     
                     let conn = false;
                     if(this.loginForm.value.courriel==='LeMonarch' && this.loginForm.value.mot_passe === '54321'){
@@ -64,15 +67,18 @@ export class DialogLoginComponent implements OnInit {
                         sessionStorage.setItem("connecte","true");
                         conn = a.courriel === this.loginForm.value.courriel && a.mot_passe === this.loginForm.value.mot_passe;
                     }
+                    console.log(conn);
                     return conn;
+                              
                 })
-              
+                console.log(user);
+
                 if (sessionStorage.getItem("connecte") === "true") {
                     console.log(user);
                     //changer l'etat de la connexion dans le service
                     this.authServ.setConnexion(!this.estConnecte);
                     this.loginForm.reset();
-                    sessionStorage.setItem("id_usager", user.id);
+                    sessionStorage.setItem("id_usager", user.id_usager);
                     // console.log(sessionStorage.id_usager);
                     
                     this.authServ.setTitre('Mon cellier');

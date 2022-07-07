@@ -506,3 +506,7 @@ td.mat-cell.left {
     justify-content: flex-start;
     padding: 20px 0 0 0;
 }
+
+.th.mat-header-cell:first-of-type {
+    text-align: center !important;
+}

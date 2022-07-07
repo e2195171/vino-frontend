@@ -21,7 +21,7 @@ export class ListeProduitComponent implements OnInit {
 
     estEditable:boolean= false;
     
-    displayedColumns: string[] = ["image", "nom", "cellier_nom", "quantite", "pays", "type", "millesime", "voir"];
+    displayedColumns: string[] = ["image", "nom", "note", "cellier_nom", "quantite", "pays", "type", "millesime", "voir"];
     dataSource !: MatTableDataSource<IProduit>;
 
     @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -132,5 +132,21 @@ export class ListeProduitComponent implements OnInit {
         });
         this.getAllBouteillesUsager();
     }
-
+    
+    // @ts-ignore
+    getEtoile(moyenne, i) { /// C'est la fonnction qui affiche soit étoile soit étoile vide soit demi-etoile
+        let star = 'star';
+        if(moyenne >= (i)){
+        star = 'star';
+        }else {
+            if(Math.ceil(moyenne)===i){
+                star = 'star_half';
+            }else{
+                if(moyenne < i){
+                star = 'star_border';
+                }
+            }
+        }
+    return star;
+    }
 }
