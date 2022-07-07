@@ -42,6 +42,11 @@ export class ApibieroService {
         return this.http.get<IUsager>(this.url+'usager/login');
     }
 
+    /** GET requête pour se connecter*/
+    getToutUsagers(): Observable<IListeUsager>{
+        return this.http.get<IUsager>(this.url+'usager/usager');
+    }
+
     /** GET requête pour afficher les bouteilles d'usager */
     getAllBouteillesUsager(id_usager: any): Observable<IListeProduit>{
         return this.http.get<IListeProduit>(this.url+'usager/bouteilles/'+id_usager);

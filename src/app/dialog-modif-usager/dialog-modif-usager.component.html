@@ -29,7 +29,7 @@
             <mat-hint></mat-hint>
         </mat-form-field>
         <mat-form-field>
-            <mat-select formControlName="id_ville" [value]="usager.nom" placeholder="Nom de la ville">
+            <mat-select [(value)]="getVilleId" formControlName="id_ville"  placeholder="Nom de la ville">
               <mat-option *ngFor="let ville of villes" [value]="ville.id">
                 {{ ville.nom }}
               </mat-option>
