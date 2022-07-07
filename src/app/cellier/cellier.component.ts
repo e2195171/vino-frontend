@@ -32,7 +32,7 @@ export class CellierComponent implements OnInit {
 
     estEditable:boolean= false;
     
-    displayedColumns: string[] = ["image","nom","quantite","pays", "type", "millesime", "voir", "action" ];
+    displayedColumns: string[] = ["image","nom", "note", "quantite","pays", "type", "millesime", "voir", "action" ];
     dataSource !: MatTableDataSource<IProduit>;
 
     @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -181,5 +181,21 @@ export class CellierComponent implements OnInit {
     this.getBouteillesDansCeCellier();
     }
 
-    
+    /** La fonnction qui affiche soit étoile soit étoile vide soit demi-etoile */
+    // @ts-ignore
+    getEtoile(moyenne, i) { 
+        let star = 'star';
+        if(moyenne >= (i)){
+            star = 'star';
+        }else {
+            if(Math.ceil(moyenne)===i){
+                star = 'star_half';
+            }else{
+                if(moyenne < i){
+                star = 'star_border';
+                }
+            }
+        }
+        return star;
+    }
 }

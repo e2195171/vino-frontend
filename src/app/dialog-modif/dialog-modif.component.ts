@@ -26,11 +26,13 @@ export class DialogModifComponent implements OnInit {
     nombreEntierRegex = /^\d+$/;
     nombreFlottantRegex = /^[-+]?[0-9]+[.]?[0-9]*([eE][-+]?[0-9]+)?$/;
     anneeRegex = /^(18|19|20)[\d]{2,2}$/;
+    noteRegex = /^(?:[1-9]|0[1-9]|10)$/;
 
     ngOnInit(): void {
         /** Forme et validation des données saisies */
         this.modifierBouteilleForm = this.formBuilder.group({
             date_achat: [''],
+            note: ['', [Validators.pattern(this.noteRegex)]],
             garde_jusqua: [''],
             prix: ['', [Validators.pattern(this.nombreFlottantRegex)]],
             quantite : ['', [Validators.pattern(this.nombreEntierRegex)]],
@@ -41,6 +43,7 @@ export class DialogModifComponent implements OnInit {
         /** Affectation des données du formulaire aux valeurs à envoyer à la base de données */
         if(this.editData){
             this.modifierBouteilleForm.controls['date_achat'].setValue(this.editData.date_achat);
+            this.modifierBouteilleForm.controls['note'].setValue(this.editData.note);
             this.modifierBouteilleForm.controls['garde_jusqua'].setValue(this.editData.garde_jusqua);
             this.modifierBouteilleForm.controls['prix'].setValue(this.editData.prix);
             this.modifierBouteilleForm.controls['quantite'].setValue(this.editData.quantite);
@@ -56,6 +59,7 @@ export class DialogModifComponent implements OnInit {
             bouteille.id_cellier = this.editData.id_cellier;
             bouteille.id_bouteille = this.editData.id_bouteille;
             bouteille.id_achats = this.editData.id_achats;
+            bouteille.id_usager = this.editData.id_usager;
             // bouteille.id_usager = id_usager;
             this.bieroServ.modifierBouteille(bouteille).subscribe({
             next:(reponse)=>{

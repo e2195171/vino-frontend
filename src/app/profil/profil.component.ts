@@ -108,7 +108,7 @@ export class ProfilComponent implements OnInit {
         const dialogRef = this.dialog.open(DialogModifCellierComponent, {
             width: '100%',
             maxWidth: '370px',
-            maxHeight: '540px',
+            //maxHeight: '540px',
             data:cellier
         }).afterClosed().subscribe(res=>{
             this.getMesCelliers();
@@ -120,7 +120,7 @@ export class ProfilComponent implements OnInit {
         const dialogRef = this.dialog.open(DialogSupprimCellierComponent, {
             width: '100%',
             maxWidth: '370px',
-            maxHeight: '370px',
+            //maxHeight: '370px',
             data:cellier
         }).afterClosed().subscribe(res=>{
             this.getMesCelliers();
@@ -132,7 +132,7 @@ export class ProfilComponent implements OnInit {
         this.dialog.open(DialogAjoutCellierComponent, {
             width: '100%',
             maxWidth: '370px',
-            maxHeight: '540px',
+            //maxHeight: '540px',
             data: this.cellier
         }).afterClosed().subscribe(res=>{
             this.getMesCelliers();
@@ -145,7 +145,7 @@ export class ProfilComponent implements OnInit {
         this.dialog.open(DialogAjoutBouteilleNonListeesComponent, {
             width: '100%',
             maxWidth: '370px',
-            maxHeight: '800px',
+            //maxHeight: '800px',
             data: this.bouteille
         }).afterClosed().subscribe(res=>{
             this.getMesCelliers();
@@ -157,7 +157,7 @@ export class ProfilComponent implements OnInit {
         const dialogRef = this.dialog.open(DialogModifUsagerComponent, {
             width: '100%',
             maxWidth: '370px',
-            maxHeight: '540px',
+            //maxHeight: '540px',
             data:usager
         }).afterClosed().subscribe(res=>{
             this.getMonProfil();
