@@ -26,12 +26,13 @@ export class DialogModifComponent implements OnInit {
     nombreEntierRegex = /^\d+$/;
     nombreFlottantRegex = /^[-+]?[0-9]+[.]?[0-9]*([eE][-+]?[0-9]+)?$/;
     anneeRegex = /^(18|19|20)[\d]{2,2}$/;
+    noteRegex = /^(?:[1-9]|0[1-9]|10)$/;
 
     ngOnInit(): void {
         /** Forme et validation des données saisies */
         this.modifierBouteilleForm = this.formBuilder.group({
             date_achat: [''],
-            note: [''],
+            note: ['', [Validators.pattern(this.noteRegex)]],
             garde_jusqua: [''],
             prix: ['', [Validators.pattern(this.nombreFlottantRegex)]],
             quantite : ['', [Validators.pattern(this.nombreEntierRegex)]],
