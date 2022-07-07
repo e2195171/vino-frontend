@@ -9,6 +9,17 @@
             <mat-hint></mat-hint>
         </mat-form-field>
         <mat-form-field appearance="outline">
+            <mat-label>Note :</mat-label>
+            <input type="string"
+                   matInput
+                   formControlName="note"
+                   [min]="0"
+                   [max]="10"
+                   [placeholder]="'Saisir une note entre 0 et 10'"
+            >
+            <mat-hint></mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
             <mat-label>Garder jusqu'à :</mat-label>
             <input type="date" matInput formControlName="garde_jusqua" placeholder="AAAA-MM-JJ">
             <mat-hint></mat-hint>

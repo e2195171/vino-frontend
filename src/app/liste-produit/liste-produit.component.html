@@ -23,6 +23,20 @@
                 <th mat-header-cell *matHeaderCellDef mat-sort-header="nom" > Nom </th>
                 <td mat-cell class="left" *matCellDef="let bouteille"> {{bouteille.nom}} </td>
             </ng-container>
+            <ng-container matColumnDef="note">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="note" > Note </th>
+                <td mat-cell class="left" *matCellDef="let bouteille">
+                  <div class="note">
+                    <div class="rating-container">
+                      <div class="etoiles">
+                          <mat-icon *ngFor="let ratingId of [1, 2, 3, 4, 5]; index as i">
+                            {{getEtoile(bouteille.note_etoiles?.note_moyenne/2, i+1)}}
+                          </mat-icon>({{bouteille.note_etoiles?.nombre_notes || 0}})
+                      </div>
+                    </div>
+                  </div>
+                </td>
+            </ng-container>
             <ng-container matColumnDef="cellier_nom">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header="cellier_nom" > Cellier </th>
                 <td mat-cell class="left" *matCellDef="let bouteille"><a routerLink="/cellier/{{bouteille.cellier_id_cellier}}"> {{bouteille.cellier_nom}}</a></td>
