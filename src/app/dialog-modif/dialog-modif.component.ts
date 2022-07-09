@@ -26,7 +26,7 @@ export class DialogModifComponent implements OnInit {
     nombreEntierRegex = /^\d+$/;
     nombreFlottantRegex = /^[-+]?[0-9]+[.]?[0-9]*([eE][-+]?[0-9]+)?$/;
     anneeRegex = /^(18|19|20)[\d]{2,2}$/;
-    noteRegex = /^(?:[1-9]|0[1-9]|10)$/;
+    noteRegex = /^(?:[1-5]|0[1-5]|5)$/;
 
     ngOnInit(): void {
         /** Forme et validation des données saisies */

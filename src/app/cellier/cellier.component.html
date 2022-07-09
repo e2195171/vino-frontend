@@ -36,7 +36,7 @@
                     <div class="rating-container">
                       <div class="etoiles">
                         <mat-icon *ngFor="let ratingId of [1, 2, 3, 4, 5]; index as i">
-                          {{getEtoile(bouteille.note_etoiles?.note_moyenne/2, i+1)}}
+                          {{getEtoile(bouteille.note_etoiles?.note_moyenne, i+1)}}
                         </mat-icon>
                         ({{bouteille.note_etoiles?.nombre_notes || 0}})
                       </div>

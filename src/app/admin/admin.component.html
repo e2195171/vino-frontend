@@ -13,7 +13,7 @@
             </mat-form-field>
             <!--Liste des Bouteilles-->
             <div class="mat-elevation-z8">
-                <table class="table" mat-table [dataSource]="dataSourceBouteille" matSort>
+                <table class="table" mat-table [dataSource]="dataSourceBouteille" #sortBouteille matSort>
                     <ng-container matColumnDef="image">
                         <th mat-header-cell *matHeaderCellDef> <span>Image</span>  </th>
                         <td class="image" mat-cell *matCellDef="let bouteille">
@@ -63,7 +63,7 @@
             </mat-form-field>
             <!--Liste des usagers-->
             <div class="mat-elevation-z8">
-                <table class="table" mat-table [dataSource]="dataSourceUsager" matSort>
+                <table class="table" mat-table [dataSource]="dataSourceUsager" #sortUsager matSort>
                     <ng-container matColumnDef="image">
                         <th mat-header-cell *matHeaderCellDef> <span>Image</span>  </th>
                         <td class="image" mat-cell *matCellDef="let usager">
@@ -96,9 +96,6 @@
                         <td class="centre buttons" mat-cell *matCellDef="let usager"> 
                             <button class="liste__btn" (click)="editDialogUsager(usager)" mat-mini-fab aria-label="Example icon button with a home icon">
                                 <mat-icon>edit</mat-icon>
-                            </button>
-                            <button class="liste__btn" (click)="editDialogMotPasse(usager)" mat-mini-fab aria-label="Example icon button with a home icon">
-                                <mat-icon>password</mat-icon>
                             </button>
                         </td>
                     </ng-container>

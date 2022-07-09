@@ -43,7 +43,8 @@ export class AdminComponent implements OnInit {
       
     @ViewChild('paginatorBouteille', { read: MatPaginator }) paginatorBouteille!: MatPaginator;
     @ViewChild('paginatorUsager', { read: MatPaginator }) paginatorUsager!: MatPaginator;
-    @ViewChild(MatSort) sort !: MatSort;
+    @ViewChild('sortBouteille', { read: MatSort }) sortBouteille !: MatSort;
+    @ViewChild('sortUsager', { read: MatSort }) sortUsager !: MatSort;
 
     constructor(
         private authServ: AuthService,
@@ -69,7 +70,7 @@ export class AdminComponent implements OnInit {
                 console.log(res.data)
                 this.dataSourceBouteille = new MatTableDataSource(res.data);
                 this.dataSourceBouteille.paginator = this.paginatorBouteille;
-                this.dataSourceBouteille.sort = this.sort;
+                this.dataSourceBouteille.sort = this.sortBouteille;
                 // console.log(this.dataSourceBouteille.sort);
             },
             error:(err)=>{
@@ -86,7 +87,7 @@ export class AdminComponent implements OnInit {
                 console.log(res.data)
                 this.dataSourceUsager = new MatTableDataSource(res.data);
                 this.dataSourceUsager.paginator = this.paginatorUsager;
-                this.dataSourceUsager.sort = this.sort;
+                this.dataSourceUsager.sort = this.sortUsager;
             },
             error:(err)=>{
                 alert("erreur")

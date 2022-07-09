@@ -136,7 +136,7 @@
 }
 @media screen and (max-width: 510px) {
     th.mat-header-cell:first-of-type {
-        padding-left: 10px ;
+        padding-left: 24px !important;
     }
     td.mat-cell:first-of-type {
         padding-left: 24px;
@@ -509,4 +509,5 @@ td.mat-cell.left {
 
 .th.mat-header-cell:first-of-type {
     text-align: center !important;
+    padding-left: 24px;
 }
